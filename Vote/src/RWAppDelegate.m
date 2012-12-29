@@ -7,12 +7,22 @@
 //
 
 #import "RWAppDelegate.h"
+#import "WXApi.h"
+#import "RWRootViewController.h"
 
 @implementation RWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    //向微信注册
+    [WXApi registerApp:@"wx4f013dd9c5a06e12"];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    RWRootViewController *mainViewController = [[RWRootViewController alloc] init];
+    mainViewController.view.backgroundColor = [UIColor yellowColor];
+    self.window.rootViewController = mainViewController;
+
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							
@@ -42,5 +52,45 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+#pragma mark - WeChat Delegate 
+-(void) onReq:(BaseReq*)req
+{
+    if([req isKindOfClass:[GetMessageFromWXReq class]])
+    {
+//        [self onRequestAppMessage];
+    }
+    else if([req isKindOfClass:[ShowMessageFromWXReq class]])
+    {
+        ShowMessageFromWXReq* temp = (ShowMessageFromWXReq*)req;
+//        [self onShowMediaMessage:temp.message];
+    }
+    
+}
+
+-(void) onResp:(BaseResp*)resp
+{
+    if([resp isKindOfClass:[SendMessageToWXResp class]])
+    {
+        NSString *strTitle = [NSString stringWithFormat:@"发送结果"];
+        NSString *strMsg = [NSString stringWithFormat:@"发送媒体消息结果:%d", resp.errCode];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+//        [alert release];
+    }
+    else if([resp isKindOfClass:[SendAuthResp class]])
+    {
+        NSString *strTitle = [NSString stringWithFormat:@"Auth结果"];
+        NSString *strMsg = [NSString stringWithFormat:@"Auth结果:%d", resp.errCode];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+//        [alert release];
+    }
+}
+
+
 
 @end

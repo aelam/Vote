@@ -1,5 +1,5 @@
 //
-//  RWViewController.h
+//  RWMainViewController
 //  Vote
 //
 //  Created by Ryan Wang on 12-12-26.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RWViewController : UIViewController
+@interface RWRootViewController : UITabBarController
 
 @end

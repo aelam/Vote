@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <NimbusModels/NimbusModels.h>
-#import "RWNITextInputFormElement.h"
-#import "RWNITextInputFormElementCell.h"
 
 @interface RWSettingsViewController : UITableViewController
 

@@ -7,13 +7,12 @@
 //
 
 #import "RWSettingsViewController.h"
+#import "NIFormCellCatalog2.h"
 
 @interface RWSettingsViewController () <NITableViewModelDelegate>
 
 @property (nonatomic, readwrite, retain) NITableViewModel* model;
 @property (nonatomic, readwrite, retain) NITableViewActions* actions;
-
-@property (nonatomic, readwrite, retain) NSArray *data;
 
 @end
 
@@ -21,39 +20,33 @@
 
 @synthesize model = _model;
 @synthesize actions = _actions;
-@synthesize data = _data;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
-
-        RWNITextInputFormElement *nickElement = [RWNITextInputFormElement textInputElementWithID:0 placeholderText:@"Placeholder" value:@"Initial value"];
-        nickElement.title = @"修改游戏昵称";
         
-        NSArray* tableContents =
-        [NSArray arrayWithObjects:
-
-         @"NITextInputFormElement",
-         nickElement,
-         @"NISliderFormElement",
-         [NISliderFormElement sliderElementWithID:0
-                                        labelText:@"Slider"
-                                            value:45
-                                     minimumValue:0
-                                     maximumValue:100],
-         
-         @"NIDatePickerFormElement",
-         [NIDatePickerFormElement datePickerElementWithID:0
-                                                labelText:@"Countdown"
-                                                     date:[NSDate date]
-                                           datePickerMode:UIDatePickerModeCountDownTimer],
-         nil];
+        self.title = @"游戏设置";
         
-        // We let the Nimbus cell factory create the cells.
-//        _model = [[NITableViewModel alloc] initWithSectionedArray:tableContents
-//                                                         delegate:(id)[NICellFactory class]];
+        NITextInputFormElement2 *nickElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"昵称" placeholderText:@"placeholder" value:@"Value"];
+
+        NITextInputFormElement2 *signElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"签名" placeholderText:@"placeholder" value:@"Value"];
+
+        NINumberPickerFormElement *redNumberElement = [NINumberPickerFormElement numberPickerElementWithID:0 labelText:@"红方人数" min:0 max:5 defaultValue:4 didChangeTarget:nil didChangeSelector:nil];
+
+        NINumberPickerFormElement *blueNumberElement = [NINumberPickerFormElement numberPickerElementWithID:0 labelText:@"蓝方人数" min:0 max:5 defaultValue:4 didChangeTarget:nil didChangeSelector:nil];
+
+        NISwitchFormElement *autoCardElement = [NISwitchFormElement switchElementWithID:0 labelText:@"自动发牌" value:YES];
+        
+        NSArray* tableContents = [NSArray arrayWithObjects:
+                                  nickElement,
+                                  signElement,
+                                  redNumberElement,
+                                  blueNumberElement,
+                                  autoCardElement,
+                                  [NIDatePickerFormElement datePickerElementWithID:0 labelText:@"date" date:[NSDate date] datePickerMode:UIDatePickerModeDate],
+                                  nil];
+
         _model = [[NITableViewModel alloc] initWithSectionedArray:tableContents
                                                          delegate:self];
         
@@ -71,21 +64,13 @@
     // of the data source methods directly in your controller.
     self.tableView.dataSource = self.model;
     
-    // What we're doing here is known as "delegate chaining". It uses the message forwarding
-    // functionality of Objective-C to insert the actions object between the table view
-    // and this controller. The actions object forwards UITableViewDelegate methods along and
-    // selectively intercepts methods required to make user interactions work.
-    //
-    // Experiment: try commenting out this line. You'll notice that you can no longer tap any of
-    // the cells in the table view and that they no longer show the disclosure accessory types.
-    // Cool, eh? That this functionality is all provided to you in one line should make you
-    // heel-click.
-//    self.tableView.delegate = [self.actions forwardingTo:self];
+    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(submitChanges:)];
+    self.navigationItem.rightBarButtonItem = doneItem;
+    
+    
+}
 
-//    self.data = [NSArray arrayWithObjects:[[Tweet alloc] init],[[Tweet alloc] init] ,nil];
-//
-//    self.tableView.delegate = self;
-//    self.tableView.dataSource = self;
+- (void)submitChanges:(id)sender {
     
 }
 

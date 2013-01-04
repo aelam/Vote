@@ -18,9 +18,11 @@
 		940C32D1168C165800BCB8FB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940C32D0168C165800BCB8FB /* MobileCoreServices.framework */; };
 		940C32D3168C166100BCB8FB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940C32D2168C166100BCB8FB /* SystemConfiguration.framework */; };
 		94665DD7168C1FFA00E55DEA /* libWeChatSDK_armv7_armv7s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94665DD3168C1FFA00E55DEA /* libWeChatSDK_armv7_armv7s.a */; };
+		94909910169696DE00985084 /* NIFormCellCatalog2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9490990F169696DE00985084 /* NIFormCellCatalog2.m */; };
+		949099921696BC6C00985084 /* RWCreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949099911696BC6C00985084 /* RWCreateGameViewController.m */; };
+		949099961696BD2500985084 /* RWGameSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 949099951696BD2500985084 /* RWGameSettings.m */; };
+		949099991696BD3000985084 /* RWUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 949099981696BD3000985084 /* RWUser.m */; };
 		94D44473168E057B002AECB4 /* RWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D44472168E057B002AECB4 /* RWMainViewController.m */; };
-		94D444BD168F0773002AECB4 /* RWNITextInputFormElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D444BC168F0773002AECB4 /* RWNITextInputFormElement.m */; };
-		94D444C0168F0796002AECB4 /* RWNITextInputFormElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D444BF168F0796002AECB4 /* RWNITextInputFormElementCell.m */; };
 		94D51F52168B29D400261F3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D51F51168B29D400261F3C /* UIKit.framework */; };
 		94D51F54168B29D400261F3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D51F53168B29D400261F3C /* Foundation.framework */; };
 		94D51F56168B29D400261F3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D51F55168B29D400261F3C /* CoreGraphics.framework */; };
@@ -282,12 +284,16 @@
 		94665DD3168C1FFA00E55DEA /* libWeChatSDK_armv7_armv7s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK_armv7_armv7s.a; sourceTree = "<group>"; };
 		94665DD4168C1FFA00E55DEA /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		94665DD5168C1FFA00E55DEA /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		9490990E169696DE00985084 /* NIFormCellCatalog2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIFormCellCatalog2.h; sourceTree = "<group>"; };
+		9490990F169696DE00985084 /* NIFormCellCatalog2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIFormCellCatalog2.m; sourceTree = "<group>"; };
+		949099901696BC6C00985084 /* RWCreateGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWCreateGameViewController.h; sourceTree = "<group>"; };
+		949099911696BC6C00985084 /* RWCreateGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWCreateGameViewController.m; sourceTree = "<group>"; };
+		949099941696BD2500985084 /* RWGameSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWGameSettings.h; sourceTree = "<group>"; };
+		949099951696BD2500985084 /* RWGameSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWGameSettings.m; sourceTree = "<group>"; };
+		949099971696BD3000985084 /* RWUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWUser.h; sourceTree = "<group>"; };
+		949099981696BD3000985084 /* RWUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWUser.m; sourceTree = "<group>"; };
 		94D44471168E057A002AECB4 /* RWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWMainViewController.h; sourceTree = "<group>"; };
 		94D44472168E057B002AECB4 /* RWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWMainViewController.m; sourceTree = "<group>"; };
-		94D444BB168F0773002AECB4 /* RWNITextInputFormElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWNITextInputFormElement.h; sourceTree = "<group>"; };
-		94D444BC168F0773002AECB4 /* RWNITextInputFormElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWNITextInputFormElement.m; sourceTree = "<group>"; };
-		94D444BE168F0796002AECB4 /* RWNITextInputFormElementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWNITextInputFormElementCell.h; sourceTree = "<group>"; };
-		94D444BF168F0796002AECB4 /* RWNITextInputFormElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWNITextInputFormElementCell.m; sourceTree = "<group>"; };
 		94D51F4D168B29D400261F3C /* Vote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94D51F51168B29D400261F3C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		94D51F53168B29D400261F3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -376,13 +382,29 @@
 			path = Vote/Frameworks/libWeChat;
 			sourceTree = "<group>";
 		};
+		9490998B1696BA9400985084 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		949099931696BD1600985084 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				949099941696BD2500985084 /* RWGameSettings.h */,
+				949099951696BD2500985084 /* RWGameSettings.m */,
+				949099971696BD3000985084 /* RWUser.h */,
+				949099981696BD3000985084 /* RWUser.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		94D44467168DFEF0002AECB4 /* nimbus-category */ = {
 			isa = PBXGroup;
 			children = (
-				94D444BB168F0773002AECB4 /* RWNITextInputFormElement.h */,
-				94D444BC168F0773002AECB4 /* RWNITextInputFormElement.m */,
-				94D444BE168F0796002AECB4 /* RWNITextInputFormElementCell.h */,
-				94D444BF168F0796002AECB4 /* RWNITextInputFormElementCell.m */,
+				9490990E169696DE00985084 /* NIFormCellCatalog2.h */,
+				9490990F169696DE00985084 /* NIFormCellCatalog2.m */,
 			);
 			path = "nimbus-category";
 			sourceTree = "<group>";
@@ -452,9 +474,13 @@
 		94D51F78168B2B0500261F3C /* src */ = {
 			isa = PBXGroup;
 			children = (
+				949099931696BD1600985084 /* Models */,
+				9490998B1696BA9400985084 /* Request */,
 				94D44467168DFEF0002AECB4 /* nimbus-category */,
 				94D51F79168B2B0500261F3C /* RWAppDelegate.h */,
 				94D51F7A168B2B0500261F3C /* RWAppDelegate.m */,
+				949099901696BC6C00985084 /* RWCreateGameViewController.h */,
+				949099911696BC6C00985084 /* RWCreateGameViewController.m */,
 				94D51F7B168B2B0500261F3C /* RWSettingsViewController.h */,
 				94D51F7C168B2B0500261F3C /* RWSettingsViewController.m */,
 				94D51F82168B2B3A00261F3C /* RWRootViewController.h */,
@@ -735,8 +761,10 @@
 				94D51F80168B2B0500261F3C /* RWSettingsViewController.m in Sources */,
 				94D51F84168B2B3A00261F3C /* RWRootViewController.m in Sources */,
 				94D44473168E057B002AECB4 /* RWMainViewController.m in Sources */,
-				94D444BD168F0773002AECB4 /* RWNITextInputFormElement.m in Sources */,
-				94D444C0168F0796002AECB4 /* RWNITextInputFormElementCell.m in Sources */,
+				94909910169696DE00985084 /* NIFormCellCatalog2.m in Sources */,
+				949099921696BC6C00985084 /* RWCreateGameViewController.m in Sources */,
+				949099961696BD2500985084 /* RWGameSettings.m in Sources */,
+				949099991696BD3000985084 /* RWUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

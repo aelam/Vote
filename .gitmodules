@@ -1,3 +1,6 @@
 [submodule "RestKit"]
 	path = RestKit
 	url = https://github.com/RestKit/RestKit.git
+[submodule "nimbus"]
+	path = nimbus
+	url = https://github.com/jverkoey/nimbus.git

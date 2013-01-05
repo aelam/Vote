@@ -14,7 +14,7 @@
 // limitations under the License.
 //
 
-#import <NimbusCore/NimbusCore.h>
+#import "NimbusCore.h"
 #import "NIFormCellCatalog2.h"
 #import <objc/message.h>
 

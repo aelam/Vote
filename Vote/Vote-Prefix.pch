@@ -11,5 +11,9 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import <NimbusCore/NIPreprocessorMacros.h>
+
+    #import "NimbusCore.h"
+
+    #import "RWURLConstants.h"
+
 #endif

@@ -28,27 +28,25 @@
         
         self.title = @"游戏设置";
         
-        NITextInputFormElement2 *nickElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"昵称" placeholderText:@"placeholder" value:@"Value"];
+        NITextInputFormElement2 *nickElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"昵称" placeholderText:@"Required" value:nil];
 
-        NITextInputFormElement2 *signElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"签名" placeholderText:@"placeholder" value:@"Value"];
+        NITextInputFormElement2 *signElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"个性签名" placeholderText:@"Required" value:nil];
 
         NINumberPickerFormElement *redNumberElement = [NINumberPickerFormElement numberPickerElementWithID:0 labelText:@"红方人数" min:0 max:5 defaultValue:4 didChangeTarget:nil didChangeSelector:nil];
 
         NINumberPickerFormElement *blueNumberElement = [NINumberPickerFormElement numberPickerElementWithID:0 labelText:@"蓝方人数" min:0 max:5 defaultValue:4 didChangeTarget:nil didChangeSelector:nil];
 
-        NISwitchFormElement *autoCardElement = [NISwitchFormElement switchElementWithID:0 labelText:@"自动发牌" value:YES];
+//        NISwitchFormElement *autoCardElement = [NISwitchFormElement switchElementWithID:0 labelText:@"自动发牌" value:YES];
         
         NSArray* tableContents = [NSArray arrayWithObjects:
                                   nickElement,
                                   signElement,
                                   redNumberElement,
                                   blueNumberElement,
-                                  autoCardElement,
-                                  [NIDatePickerFormElement datePickerElementWithID:0 labelText:@"date" date:[NSDate date] datePickerMode:UIDatePickerModeDate],
                                   nil];
 
         _model = [[NITableViewModel alloc] initWithSectionedArray:tableContents
-                                                         delegate:self];
+                                                         delegate:(id)[NICellFactory class]];
         
 
     }
@@ -74,39 +72,16 @@
     
 }
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return [self.data count];
+//
+//- (UITableViewCell *)tableViewModel: (NITableViewModel *)tableViewModel
+//                   cellForTableView: (UITableView *)tableView
+//                        atIndexPath: (NSIndexPath *)indexPath
+//                         withObject: (id)object {
+//    
+//    NSLog(@"%@",object);
+//    // The model gives us the object, making this much simpler and likely more efficient than the vanilla UIKit implementation.
+//    return [NICellFactory tableViewModel:tableViewModel cellForTableView:tableView atIndexPath:indexPath withObject:object];
 //}
-
-//- (UITableViewCell *)tableView: (UITableView *)tableView
-//         cellForRowAtIndexPath: (NSIndexPath *)indexPath {
-//    // Note: You must fetch the object at this index path somehow. The objectAtIndexPath:
-//    // is simply an example; replace it with your own implementation.
-//    id object = [self.data objectAtIndex:indexPath.row];
-//    
-//    UITableViewCell* cell = [NICellFactory tableViewModel:nil cellForTableView:tableView atIndexPath:indexPath withObject:object];
-//    if (nil == cell) {
-//        // Here would be whatever code you were originally using to create cells. nil is only returned
-//        // when the factory wasn't able to create a cell, likely due to the NICellObject protocol
-//        // not being implemented for the given object. As you implement these protocols on
-//        // more objects the factory will automatically start returning the correct cells
-//        // and you can start removing this special-case logic.
-//    }
-//    
-//    cell.textLabel.text = [NSString stringWithFormat:@"%d",indexPath.row];
-//    
-//    return cell;
-//}
-
-- (UITableViewCell *)tableViewModel: (NITableViewModel *)tableViewModel
-                   cellForTableView: (UITableView *)tableView
-                        atIndexPath: (NSIndexPath *)indexPath
-                         withObject: (id)object {
-    
-    NSLog(@"%@",object);
-    // The model gives us the object, making this much simpler and likely more efficient than the vanilla UIKit implementation.
-    return [NICellFactory tableViewModel:tableViewModel cellForTableView:tableView atIndexPath:indexPath withObject:object];
-}
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

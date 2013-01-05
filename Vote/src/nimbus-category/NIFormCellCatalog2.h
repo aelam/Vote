@@ -14,8 +14,8 @@
 // limitations under the License.
 //
 
-#import <NimbusModels/NITableViewModel.h>
-#import <NimbusModels/NIFormCellCatalog.h>
+#import "NITableViewModel.h"
+#import "NIFormCellCatalog.h"
 
 #pragma mark Form Elements
 

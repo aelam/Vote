@@ -8,7 +8,7 @@
 
 #import "RWMainViewController.h"
 
-#import <NimbusModels/NimbusModels.h>
+#import "NimbusModels.h"
 #import "RWCreateGameViewController.h"
 
 @interface RWMainViewController ()<NITableViewModelDelegate>

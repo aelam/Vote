@@ -8,7 +8,7 @@
 
 #import "RWCreateGameViewController.h"
 
-#import <NimbusModels/NimbusModels.h>
+#import "NimbusModels.h"
 #import "NIFormCellCatalog2.h"
 
 @interface RWCreateGameViewController () <NITableViewModelDelegate>
@@ -27,45 +27,37 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
         self.title = @"游戏设置";
 
-        
         _actions = [[NITableViewActions alloc] initWithTarget:self];
-
-
+        
         NITextInputFormElement2 *setRedNameElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"设置红方暗号" placeholderText:@"随机生成" value:nil];
 
         NITextInputFormElement2 *setBlackNameElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"设置蓝方暗号" placeholderText:@"随机生成" value:nil];
         
+        NINumberPickerFormElement *redNumberElement = [NINumberPickerFormElement numberPickerElementWithID:0 labelText:@"红方人数" min:0 max:5 defaultValue:4 didChangeTarget:nil didChangeSelector:nil];
+        
+        NINumberPickerFormElement *blueNumberElement = [NINumberPickerFormElement numberPickerElementWithID:0 labelText:@"蓝方人数" min:0 max:5 defaultValue:4 didChangeTarget:nil didChangeSelector:nil];
+        
+        NISwitchFormElement *autoCardElement = [NISwitchFormElement switchElementWithID:0 labelText:@"自动发牌" value:YES];
+
         
         NSArray* sectionedObjects =
         [NSArray arrayWithObjects:
          setRedNameElement,
          setBlackNameElement,
-         [_actions attachToObject:[NITitleCellObject objectWithTitle:@"分享游戏"] detailBlock:^BOOL(id object, id target) {
-            
-            NSLog(@"%s",__func__);
-            return YES;
-
-        }],
-         
-         
-         nil];
-
-        
-//
-//
-        
-//        
-//        NSArray* tableContents = [NSArray arrayWithObjects:
-//                                  setRedNameElement,
-//                                  setBlackNameElement,
-//                                  nil];
-    
-        
-        
-//        _model = [[NITableViewModel alloc] initWithSectionedArray:tableContents
-//                                                         delegate:[NICellFactory class]];
+         redNumberElement,
+         blueNumberElement,
+         autoCardElement,
+         [self.actions attachToObject:[NITitleCellObject objectWithTitle:@"Explicit tap handler"]
+                             tapBlock:
+          ^BOOL(id object, id target) {
+              NSLog(@"Object was tapped with an explicit action: %@", object);
+              return YES;
+          }],
+         nil
+         ];
         
         _model = [[NITableViewModel alloc] initWithSectionedArray:sectionedObjects
                                                          delegate:(id)[NICellFactory class]];
@@ -77,8 +69,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
     self.tableView.dataSource = self.model;
+    self.tableView.delegate = [self.actions forwardingTo:self];
+
 }
 
 - (void)didReceiveMemoryWarning

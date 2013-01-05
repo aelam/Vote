@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <NimbusModels/NimbusModels.h>
+#import "NimbusModels.h"
 
 @interface RWSettingsViewController : UITableViewController
 

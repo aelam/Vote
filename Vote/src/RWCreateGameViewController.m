@@ -88,8 +88,8 @@ static NSInteger const kBlueElementTag  = 1003;
         
         if (isAutoDeal == NO) {
             NSInteger index = [sectionedObjects indexOfObject:_autoCardElement];
-            [sectionedObjects insertObject:self.blueCodeElement atIndex:index];
-            [sectionedObjects insertObject:self.redCodeElement atIndex:index];
+            [sectionedObjects insertObject:self.blueCodeElement atIndex:index+1];
+            [sectionedObjects insertObject:self.redCodeElement atIndex:index+1];
             
         }
         
@@ -166,7 +166,7 @@ static NSInteger const kBlueElementTag  = 1003;
     if (_blueCodeElement == nil) {
         _blueCodeElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"蓝方暗号" placeholderText:@"必需" value:nil delegate:self required:YES];
     }
-    return _redCodeElement;
+    return _blueCodeElement;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

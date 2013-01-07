@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData.h>
 
 @interface RWAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) RKObjectManager *objectManager;
 
 @end

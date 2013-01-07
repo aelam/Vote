@@ -6,8 +6,12 @@
 //  Copyright (c) 2013年 Ryan Wang. All rights reserved.
 //
 
-#define kBaseURL @"http://1.votebae.duapp.com"
+#define kBaseURLString      @"http://1.votebae.duapp.com"
 
+/**
+ * @param ak 每一个请求加上ak=3puwvjlFnXOgZlCpwpKYzVst
+ */
+#define kAccessToken        @"3puwvjlFnXOgZlCpwpKYzVst"
 
 ////////////////////////////////////////////////////////////////////////
 // 用户相关
@@ -16,7 +20,7 @@
  * @param id 第一次注册不需要id, 修改信息需要id
  * @param username
  */
-#define kModifyUserPath     @"modifyUser.action"
+#define kModifyUserPath     @"user!modifyUser.action"
 
 
 
@@ -29,7 +33,7 @@
  * @param goodCount
  * @param badCount
  */
-#define kCreateGamePath     @"creatGame.action"
+#define kCreateGamePath     @"voteGame!creatGame.action"
 
 
 
@@ -41,4 +45,4 @@
  * @param id
  * @param operator
  */
-#define kViewGameInfo       @"lookGame.action"
+#define kViewGameInfo       @"voteGame!lookGame.action"

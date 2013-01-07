@@ -23,11 +23,15 @@
 @synthesize model = _model;
 @synthesize actions = _actions;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+- (id)initWithStyle:(UITableViewStyle)style {
+    // We explicitly set the table view style in this controller's implementation because we want this
+    // controller to control how the table view is displayed.
+    self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        
+
         self.title = @"游戏";
         
         _actions = [[NITableViewActions alloc] initWithTarget:self];

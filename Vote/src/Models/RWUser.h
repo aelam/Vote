@@ -2,19 +2,22 @@
 //  RWUser.h
 //  Vote
 //
-//  Created by Ryan Wang on 13-1-4.
+//  Created by Ryan Wang on 13-1-6.
 //  Copyright (c) 2013年 Ryan Wang. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+
 
 @interface RWUser : NSObject
 
-@property (nonatomic,copy) NSString *userId;
-@property (nonatomic,copy) NSString *nickname;
-@property (nonatomic,copy) NSString *mood;  //个性签名
+@property (nonatomic, retain) NSString * mood;
+@property (nonatomic, retain) NSString * nickname;
+@property (nonatomic, retain) NSString * userID;
 
++ (RWUser *)currentUser;
 
-+ (id)currentUser;
+- (void)save;
 
 @end

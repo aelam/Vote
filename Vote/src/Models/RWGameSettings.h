@@ -12,5 +12,11 @@
 
 @property (nonatomic,assign) NSInteger redRoleCount;
 @property (nonatomic,assign) NSInteger blueRoleCount;
+@property (nonatomic,assign) BOOL autoDeal;
+
++ (RWGameSettings *)defaultSettings;
+- (void)save;
+
+
 
 @end

@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "NimbusModels.h"
+#import "RWUser.h"
 
 @interface RWSettingsViewController : UITableViewController
+
+@property (nonatomic,copy)RWUser *modifyingUser;
 
 @end

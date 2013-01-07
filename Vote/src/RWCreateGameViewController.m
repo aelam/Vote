@@ -9,12 +9,23 @@
 #import "RWCreateGameViewController.h"
 
 #import "NimbusModels.h"
+#import "NIMutableTableViewModel.h"
 #import "NIFormCellCatalog2.h"
+#import "RWGameSettings.h"
 
-@interface RWCreateGameViewController () <NITableViewModelDelegate>
+static NSInteger const kRedElementTag   = 1001;
+static NSInteger const kBlueElementTag  = 1003;
 
-@property (nonatomic, readwrite, retain) NITableViewModel* model;
+
+@interface RWCreateGameViewController () <NITableViewModelDelegate,UITextFieldDelegate>
+
+@property (nonatomic, readwrite, retain) NIMutableTableViewModel* model;
 @property (nonatomic, readwrite, retain) NITableViewActions* actions;
+@property (nonatomic, readwrite, retain) NINumberPickerFormElement* redNumberElement;
+@property (nonatomic, readwrite, retain) NINumberPickerFormElement* blueNumberElement;
+@property (nonatomic, readwrite, retain) NISwitchFormElement *autoCardElement;
+@property (nonatomic, readwrite, retain) NITextInputFormElement2 *redCodeElement;
+@property (nonatomic, readwrite, retain) NITextInputFormElement2 *blueCodeElement;
 
 @end
 
@@ -22,44 +33,69 @@
 
 @synthesize model = _model;
 @synthesize actions = _actions;
+@synthesize redNumberElement = _redNumberElement;
+@synthesize blueNumberElement = _blueNumberElement;
+@synthesize autoCardElement = _autoCardElement;
+@synthesize redCodeElement = _redCodeElement;
+@synthesize blueCodeElement = _blueCodeElement;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
+- (id)initWithStyle:(UITableViewStyle)style {
+    // We explicitly set the table view style in this controller's implementation because we want this
+    // controller to control how the table view is displayed.
+    self = [super initWithStyle:UITableViewStyleGrouped];
+    {
         self.title = @"游戏设置";
 
         _actions = [[NITableViewActions alloc] initWithTarget:self];
         
-        NITextInputFormElement2 *setRedNameElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"设置红方暗号" placeholderText:@"随机生成" value:nil];
+        BOOL isAutoDeal = [RWGameSettings defaultSettings].autoDeal;
+        
+        
+        self.redNumberElement = [NINumberPickerFormElement numberPickerElementWithID:kRedElementTag labelText:@"红方人数" min:0 max:10 defaultValue:[RWGameSettings defaultSettings].redRoleCount didChangeTarget:self didChangeSelector:@selector(numberPickerValueChanged:)];
+        
+        self.blueNumberElement = [NINumberPickerFormElement numberPickerElementWithID:kBlueElementTag labelText:@"蓝方人数" min:0 max:10 defaultValue:[RWGameSettings defaultSettings].blueRoleCount didChangeTarget:self didChangeSelector:@selector(numberPickerValueChanged:)];
+        
+        self.autoCardElement = [NISwitchFormElement switchElementWithID:0 labelText:@"自动发牌" value:isAutoDeal didChangeTarget:self didChangeSelector:@selector(switchAction:)];
 
-        NITextInputFormElement2 *setBlackNameElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"设置蓝方暗号" placeholderText:@"随机生成" value:nil];
-        
-        NINumberPickerFormElement *redNumberElement = [NINumberPickerFormElement numberPickerElementWithID:0 labelText:@"红方人数" min:0 max:5 defaultValue:4 didChangeTarget:nil didChangeSelector:nil];
-        
-        NINumberPickerFormElement *blueNumberElement = [NINumberPickerFormElement numberPickerElementWithID:0 labelText:@"蓝方人数" min:0 max:5 defaultValue:4 didChangeTarget:nil didChangeSelector:nil];
-        
-        NISwitchFormElement *autoCardElement = [NISwitchFormElement switchElementWithID:0 labelText:@"自动发牌" value:YES];
-
-        
-        NSArray* sectionedObjects =
-        [NSArray arrayWithObjects:
-         setRedNameElement,
-         setBlackNameElement,
-         redNumberElement,
-         blueNumberElement,
-         autoCardElement,
-         [self.actions attachToObject:[NITitleCellObject objectWithTitle:@"Explicit tap handler"]
+        NSMutableArray* sectionedObjects =
+        [NSMutableArray arrayWithObjects:
+         [self.actions attachToObject:_redNumberElement
                              tapBlock:
           ^BOOL(id object, id target) {
-              NSLog(@"Object was tapped with an explicit action: %@", object);
+              
+              NSLog(@"Object was tapped with an explicit action: %@ target : %@", object,target);
+              return YES;
+          }],
+         [self.actions attachToObject:_blueNumberElement
+                             tapBlock:
+          ^BOOL(id object, id target) {
+              
+              NSLog(@"Object was tapped with an explicit action: %@ target : %@", object,target);
+              return YES;
+          }],
+         @"",
+         _autoCardElement,
+         @"",
+         [self.actions attachToObject:[NITitleCellObject objectWithTitle:@"创建游戏"]
+                             tapBlock:
+          ^BOOL(id object, id target) {
+              
+              NSLog(@"Object was tapped with an explicit action: %@ target : %@", object,target);
               return YES;
           }],
          nil
          ];
         
-        _model = [[NITableViewModel alloc] initWithSectionedArray:sectionedObjects
+        if (isAutoDeal == NO) {
+            NSInteger index = [sectionedObjects indexOfObject:_autoCardElement];
+            [sectionedObjects insertObject:self.blueCodeElement atIndex:index];
+            [sectionedObjects insertObject:self.redCodeElement atIndex:index];
+            
+        }
+        
+        
+        
+        _model = [[NIMutableTableViewModel alloc] initWithSectionedArray:sectionedObjects
                                                          delegate:(id)[NICellFactory class]];
 
     }
@@ -73,7 +109,79 @@
     self.tableView.dataSource = self.model;
     self.tableView.delegate = [self.actions forwardingTo:self];
 
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapTableView)];
+    tap.cancelsTouchesInView = NO;    
+    [self.tableView addGestureRecognizer:tap];
+
 }
+
+- (void)numberPickerValueChanged:(UIPickerView *)picker {
+    if (picker.tag == kRedElementTag) {
+        [RWGameSettings defaultSettings].redRoleCount = self.redNumberElement.selectedValue;
+        [[RWGameSettings defaultSettings] save];
+    } else if (picker.tag == kBlueElementTag) {
+        [RWGameSettings defaultSettings].blueRoleCount = self.blueNumberElement.selectedValue;
+        [[RWGameSettings defaultSettings] save];
+    }
+}
+
+- (void)switchAction:(UISwitch *)switch0 {
+    [RWGameSettings defaultSettings].autoDeal = switch0.on;
+    [[RWGameSettings defaultSettings] save];
+    
+    if (switch0.on == NO) {        
+
+        [self.tableView beginUpdates];
+        NSArray *cell0 = [self.model insertObject:self.redCodeElement atRow:1 inSection:1];
+        NSArray *cell1 = [self.model insertObject:self.blueCodeElement atRow:2 inSection:1];
+        [self.tableView insertRowsAtIndexPaths:cell0 withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView insertRowsAtIndexPaths:cell1 withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView endUpdates];
+
+    } else {
+
+        [self.tableView beginUpdates];
+        NSArray *cell0 = [self.model removeObjectAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:1]];
+        NSArray *cell1 = [self.model removeObjectAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
+        [self.tableView deleteRowsAtIndexPaths:cell1 withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView deleteRowsAtIndexPaths:cell0 withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView endUpdates];
+
+    }
+    
+}
+
+- (void)createGame:(id)sender {
+    
+}
+
+- (NITextInputFormElement2 *)redCodeElement {
+    if (_redCodeElement == nil) {
+        _redCodeElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"红方暗号" placeholderText:@"必需" value:nil delegate:self required:YES];
+    }
+    return _redCodeElement;
+}
+
+- (NITextInputFormElement2 *)blueCodeElement {
+    if (_blueCodeElement == nil) {
+        _blueCodeElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"蓝方暗号" placeholderText:@"必需" value:nil delegate:self required:YES];
+    }
+    return _redCodeElement;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NINumberPickerFormElementCell *cell = (NINumberPickerFormElementCell *)[tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isKindOfClass:[NINumberPickerFormElementCell class]]) {
+        [cell.numberField becomeFirstResponder];
+    }
+}
+
+
+
+- (void)didTapTableView {
+    [self.view endEditing:YES];
+}
+
 
 - (void)didReceiveMemoryWarning
 {

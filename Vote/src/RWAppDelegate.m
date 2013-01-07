@@ -12,10 +12,55 @@
 
 @implementation RWAppDelegate
 
+@synthesize objectManager = _objectManager;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //向微信注册
     [WXApi registerApp:@"wx4f013dd9c5a06e12"];
+    
+    NSURL *baseURL = [NSURL URLWithString:kBaseURLString];
+    self.objectManager = [RKObjectManager managerWithBaseURL:baseURL];
+    
+    // Enable Activity Indicator Spinner
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    // Initialize managed object store
+    NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    
+    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
+    self.objectManager.managedObjectStore = managedObjectStore;
+
+//    RKEntityMapping *userMapping = [RKEntityMapping mappingForEntityForName:@"RWUser" inManagedObjectStore:managedObjectStore];
+//    userMapping.identificationAttributes = @[ @"userID" ];
+//    [userMapping addAttributeMappingsFromDictionary:@{
+//     @"id": @"userID",
+////     @"screen_name": @"screenName",
+//     }];
+//    // If source and destination key path are the same, we can simply add a string to the array
+//    [userMapping addAttributeMappingsFromArray:@[ @"name" ]];
+
+    
+
+    
+//    /**
+//     Complete Core Data stack initialization
+//     */
+//    [managedObjectStore createPersistentStoreCoordinator];
+//    NSString *storePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"RKData.sqlite"];
+//    NSString *seedPath = [[NSBundle mainBundle] pathForResource:@"RKSeedDatabase" ofType:@"sqlite"];
+//    NSError *error;
+//    NSPersistentStore *persistentStore = [managedObjectStore addSQLitePersistentStoreAtPath:storePath fromSeedDatabaseAtPath:seedPath withConfiguration:nil options:nil error:&error];
+//    NSAssert(persistentStore, @"Failed to add persistent store with error: %@", error);
+//    
+//    // Create the managed object contexts
+//    [managedObjectStore createManagedObjectContexts];
+//    
+//    // Configure a managed object cache to ensure we do not create duplicate objects
+//    managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc] initWithManagedObjectContext:managedObjectStore.persistentStoreManagedObjectContext];
+//
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     RWRootViewController *mainViewController = [[RWRootViewController alloc] init];

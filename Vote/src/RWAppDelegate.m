@@ -7,17 +7,28 @@
 //
 
 #import "RWAppDelegate.h"
-#import "WXApi.h"
 #import "RWRootViewController.h"
 
 @implementation RWAppDelegate
 
 @synthesize objectManager = _objectManager;
 
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return  [WXApi handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return  [WXApi handleOpenURL:url delegate:self];
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //向微信注册
-    [WXApi registerApp:@"wx4f013dd9c5a06e12"];
+    [WXApi registerApp:@"wxb376681694e365cf"];
     
     NSURL *baseURL = [NSURL URLWithString:kBaseURLString];
     self.objectManager = [RKObjectManager managerWithBaseURL:baseURL];
@@ -109,6 +120,7 @@
     else if([req isKindOfClass:[ShowMessageFromWXReq class]])
     {
         ShowMessageFromWXReq* temp = (ShowMessageFromWXReq*)req;
+        NSLog(@"%@",temp.message);
 //        [self onShowMediaMessage:temp.message];
     }
     

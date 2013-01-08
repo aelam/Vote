@@ -10,8 +10,12 @@
 
 #import "NimbusModels.h"
 #import "NIMutableTableViewModel.h"
+#import "NITableViewModel+Private.h"
 #import "NIFormCellCatalog2.h"
 #import "RWGameSettings.h"
+#import "RWUser.h"
+#import "AFHTTPClient+Singleton.h"
+#import "WXApi+EasyWrap.h"
 
 static NSInteger const kRedElementTag   = 1001;
 static NSInteger const kBlueElementTag  = 1003;
@@ -66,13 +70,14 @@ static NSInteger const kBlueElementTag  = 1003;
               NSLog(@"Object was tapped with an explicit action: %@ target : %@", object,target);
               return YES;
           }],
-         [self.actions attachToObject:_blueNumberElement
-                             tapBlock:
-          ^BOOL(id object, id target) {
-              
-              NSLog(@"Object was tapped with an explicit action: %@ target : %@", object,target);
-              return YES;
-          }],
+         _blueNumberElement,
+//         [self.actions attachToObject:_blueNumberElement
+//                             tapBlock:
+//          ^BOOL(id object, id target) {
+//              
+//              NSLog(@"Object was tapped with an explicit action: %@ target : %@", object,target);
+//              return YES;
+//          }],
          @"",
          _autoCardElement,
          @"",
@@ -80,7 +85,7 @@ static NSInteger const kBlueElementTag  = 1003;
                              tapBlock:
           ^BOOL(id object, id target) {
               
-              NSLog(@"Object was tapped with an explicit action: %@ target : %@", object,target);
+              [self createGame:nil];
               return YES;
           }],
          nil
@@ -131,20 +136,36 @@ static NSInteger const kBlueElementTag  = 1003;
     
     if (switch0.on == NO) {        
 
-        [self.tableView beginUpdates];
+        NITableViewModelSection *section = [[self.model sections] objectAtIndex:1];
+        if ([section.rows count] > 1) {
+            return;
+        }
+        
         NSArray *cell0 = [self.model insertObject:self.redCodeElement atRow:1 inSection:1];
         NSArray *cell1 = [self.model insertObject:self.blueCodeElement atRow:2 inSection:1];
-        [self.tableView insertRowsAtIndexPaths:cell0 withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self.tableView insertRowsAtIndexPaths:cell1 withRowAnimation:UITableViewRowAnimationAutomatic];
+        NSArray *cells = [NSArray arrayWithObjects:[cell0 lastObject],[cell1 lastObject],nil];
+        
+        [self.model updateSectionIndex];
+        
+        [self.tableView beginUpdates];
+        [self.tableView insertRowsAtIndexPaths:cells withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.tableView endUpdates];
 
     } else {
 
-        [self.tableView beginUpdates];
+        NITableViewModelSection *section = [[self.model sections] objectAtIndex:1];
+        if ([section.rows count] <= 1) {
+            return;
+        }
+
         NSArray *cell0 = [self.model removeObjectAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:1]];
         NSArray *cell1 = [self.model removeObjectAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
-        [self.tableView deleteRowsAtIndexPaths:cell1 withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self.tableView deleteRowsAtIndexPaths:cell0 withRowAnimation:UITableViewRowAnimationAutomatic];
+        NSArray *cells = [NSArray arrayWithObjects:[cell0 lastObject],[cell1 lastObject],nil];
+        
+        [self.model updateSectionIndex];
+        
+        [self.tableView beginUpdates];
+        [self.tableView deleteRowsAtIndexPaths:cells withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.tableView endUpdates];
 
     }
@@ -152,7 +173,76 @@ static NSInteger const kBlueElementTag  = 1003;
 }
 
 - (void)createGame:(id)sender {
+    NSLog(@"redNumberElement.selectedValue = %d",self.redNumberElement.selectedValue);
+    NSLog(@"blueCodeElement.selectedValue = %d",self.blueNumberElement.selectedValue);
     
+    NSString *nickname = [RWUser currentUser].nickname;
+    if (nickname.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请到设置里面设置昵称" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    NSString *mood = [RWUser currentUser].mood;
+    if (mood.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请到设置里面设置个性签名" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+  
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
+
+    BOOL isAutoDeal = self.autoCardElement.value;
+    if (isAutoDeal) {
+        [params setObject:@"auto" forKey:@"type"];
+    } else {
+        if (self.redCodeElement.value.length == 0 || self.blueCodeElement.value.length == 0) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"暗号不能为空" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
+        
+        [params setObject:[NSString stringWithFormat:@"%@",self.redCodeElement.value] forKey:@"goodWord"];
+        [params setObject:[NSString stringWithFormat:@"%@",self.blueCodeElement.value] forKey:@"badWord"];
+        [params setObject:@"notAuto" forKey:@"type"];
+    }
+    
+    [params setObject:nickname forKey:@"operator"];
+    [params setObject:kAccessToken forKey:@"ak"];
+    [params setObject:mood forKey:@"name"];
+    [params setObject:[NSString stringWithFormat:@"%d",self.redNumberElement.selectedValue] forKey:@"goodCount"];
+    [params setObject:[NSString stringWithFormat:@"%d",self.blueNumberElement.selectedValue] forKey:@"badCount"];
+    
+    NSLog(@"%@",params);
+    
+    AFHTTPClient *client = [AFHTTPClient sharedHTTPClient];
+    
+    NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:kCreateGamePath parameters:params];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        NSLog(@"Success :%@", JSON);
+        BOOL success = [[JSON valueForKeyPath:@"success"] boolValue];
+        if (success) {
+            id object = [JSON valueForKeyPath:@"_object"];
+            
+            [self sentToWeChatClient];
+            
+        } else {
+            
+        }
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"Failure: %@", error);
+    }];
+    [operation start];
+
+    
+    
+}
+
+
+- (void)sentToWeChatClient {
+    [WXApi sendVoteMessage:nil];
 }
 
 - (NITextInputFormElement2 *)redCodeElement {

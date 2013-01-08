@@ -45,20 +45,35 @@ static NSInteger const kMoodTag = 101;
     if (self) {
         
         self.title = @"游戏设置";
+        
         NSString *nickname = [RWUser currentUser].nickname;
         NSString *mood = [RWUser currentUser].mood;
         
         
+        self.modifyingUser = [RWUser currentUser];
+        
+        _actions = [[NITableViewActions alloc] initWithTarget:self];
+
         self.nickElement = [NITextInputFormElement2 textInputElementWithID:kNicknameTag title:@"昵称" placeholderText:@"Required" value:nickname];
         self.nickElement.delegate = self;
         self.signElement = [NITextInputFormElement2 textInputElementWithID:kMoodTag title:@"个性签名" placeholderText:@"Optional" value:mood];
         self.signElement.delegate = self;
-                
+        
+
         NSArray* tableContents = [NSArray arrayWithObjects:
                                   self.nickElement,
                                   self.signElement,
                                   //                                  redNumberElement,
                                   //                                  blueNumberElement,
+                                  @"",
+                                  [self.actions attachToObject:[NITitleCellObject objectWithTitle:@"更新"]
+                                                      tapBlock:
+                                   ^BOOL(id object, id target) {
+                                       
+                                       [self submitChanges:nil];
+                                       
+                                       return YES;
+                                   }],
                                   nil];
         
         self.model = [[NITableViewModel alloc] initWithSectionedArray:tableContents
@@ -84,13 +99,14 @@ static NSInteger const kMoodTag = 101;
     // of the data source methods directly in your controller.
     
     self.tableView.dataSource = self.model;
+    self.tableView.delegate = [self.actions forwardingTo:self];
 
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapTableView)];
     tap.cancelsTouchesInView = NO;
     [self.tableView addGestureRecognizer:tap];
 
-    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(submitChanges:)];
-    self.navigationItem.rightBarButtonItem = doneItem;
+//    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(submitChanges:)];
+//    self.navigationItem.rightBarButtonItem = doneItem;
     
 }
 
@@ -181,6 +197,8 @@ static NSInteger const kMoodTag = 101;
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if (textField.tag == kMoodTag) {
         self.modifyingUser.mood = textField.text;
+        [RWUser currentUser].mood = textField.text;
+        [[RWUser currentUser] save];
     } else if (textField.tag == kNicknameTag) {
         self.modifyingUser.nickname = textField.text;
     }
@@ -191,6 +209,8 @@ static NSInteger const kMoodTag = 101;
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     if (textField.tag == kMoodTag) {
         self.modifyingUser.mood = textField.text;
+        [RWUser currentUser].mood = textField.text;
+        [[RWUser currentUser] save];
     } else if (textField.tag == kNicknameTag) {
         self.modifyingUser.nickname = textField.text;
     }    

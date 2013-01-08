@@ -9,6 +9,7 @@
 #import "RWRootViewController.h"
 #import "RWMainViewController.h"
 #import "RWSettingsViewController.h"
+#import "RWCreateGameViewController.h"
 
 static NSInteger kMainIndex = 0;
 static NSInteger kSettingsIndex = 1;
@@ -23,8 +24,10 @@ static NSInteger kSettingsIndex = 1;
 {
     [super viewDidLoad];
     
-    RWMainViewController *mainViewController = [[RWMainViewController alloc] init];
+//    RWMainViewController *mainViewController = [[RWMainViewController alloc] init];
+    RWCreateGameViewController *mainViewController = [[RWCreateGameViewController alloc] init];
     UINavigationController *mainNavigator = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+
     
     RWSettingsViewController *settingsViewController = [[RWSettingsViewController alloc] init];
     UINavigationController *settingsNavigator = [[UINavigationController alloc] initWithRootViewController:settingsViewController];

@@ -16,4 +16,6 @@
 
     #import "RWURLConstants.h"
 
+    #import "RWMacros.h"
+
 #endif

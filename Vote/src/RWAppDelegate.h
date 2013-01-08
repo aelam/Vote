@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
+#import "WXApi.h"
 
-@interface RWAppDelegate : UIResponder <UIApplicationDelegate>
+@interface RWAppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) RKObjectManager *objectManager;

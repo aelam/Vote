@@ -48,6 +48,7 @@
 		949099921696BC6C00985084 /* RWCreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949099911696BC6C00985084 /* RWCreateGameViewController.m */; };
 		949099961696BD2500985084 /* RWGameSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 949099951696BD2500985084 /* RWGameSettings.m */; };
 		94CBD614169B0B1500D2DE86 /* RKSeedDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 94CBD613169B0B1500D2DE86 /* RKSeedDatabase.sqlite */; };
+		94CBD61F169B24CF00D2DE86 /* WXApi+EasyWrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CBD61E169B24CF00D2DE86 /* WXApi+EasyWrap.m */; };
 		94D394CE169ABB0F007F5F2F /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94D394CD169ABB0F007F5F2F /* DefaultSettings.plist */; };
 		94D44473168E057B002AECB4 /* RWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D44472168E057B002AECB4 /* RWMainViewController.m */; };
 		94D51F52168B29D400261F3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D51F51168B29D400261F3C /* UIKit.framework */; };
@@ -188,6 +189,9 @@
 		949099941696BD2500985084 /* RWGameSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWGameSettings.h; sourceTree = "<group>"; };
 		949099951696BD2500985084 /* RWGameSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWGameSettings.m; sourceTree = "<group>"; };
 		94CBD613169B0B1500D2DE86 /* RKSeedDatabase.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RKSeedDatabase.sqlite; sourceTree = "<group>"; };
+		94CBD615169B1D7300D2DE86 /* RWMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWMacros.h; sourceTree = "<group>"; };
+		94CBD61D169B24CF00D2DE86 /* WXApi+EasyWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXApi+EasyWrap.h"; sourceTree = "<group>"; };
+		94CBD61E169B24CF00D2DE86 /* WXApi+EasyWrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXApi+EasyWrap.m"; sourceTree = "<group>"; };
 		94D394CD169ABB0F007F5F2F /* DefaultSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
 		94D44471168E057A002AECB4 /* RWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWMainViewController.h; sourceTree = "<group>"; };
 		94D44472168E057B002AECB4 /* RWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWMainViewController.m; sourceTree = "<group>"; };
@@ -440,6 +444,7 @@
 			isa = PBXGroup;
 			children = (
 				944DEC2316989828007D3C3A /* RWURLConstants.h */,
+				94CBD615169B1D7300D2DE86 /* RWMacros.h */,
 				94D44467168DFEF0002AECB4 /* nimbus-category */,
 				949099931696BD1600985084 /* Models */,
 				9490998B1696BA9400985084 /* Request */,
@@ -453,6 +458,8 @@
 				94D51F83168B2B3A00261F3C /* RWRootViewController.m */,
 				94D44471168E057A002AECB4 /* RWMainViewController.h */,
 				94D44472168E057B002AECB4 /* RWMainViewController.m */,
+				94CBD61D169B24CF00D2DE86 /* WXApi+EasyWrap.h */,
+				94CBD61E169B24CF00D2DE86 /* WXApi+EasyWrap.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -603,6 +610,7 @@
 				944DECED169985DB007D3C3A /* RWUser.m in Sources */,
 				944DECF016998604007D3C3A /* RWModels.xcdatamodeld in Sources */,
 				944DED2C1699ADFF007D3C3A /* AFHTTPClient+Singleton.m in Sources */,
+				94CBD61F169B24CF00D2DE86 /* WXApi+EasyWrap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

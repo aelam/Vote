@@ -222,7 +222,8 @@
     element.minValue = min;
     element.defaultValue = default0;
     element.didChangeTarget = target;
-    element.didChangeSelector = selector;
+    element.didChangeSelector = selector;    
+    element.selectedValue = default0;
     
     return element;
 }

@@ -5,8 +5,8 @@
 	<key>kAutoDealKey</key>
 	<true/>
 	<key>kRedRoleCountKey</key>
-	<integer>4</integer>
+	<integer>5</integer>
 	<key>kBlueRoleCountKey</key>
-	<integer>2</integer>
+	<integer>1</integer>
 </dict>
 </plist>

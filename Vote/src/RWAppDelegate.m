@@ -8,10 +8,22 @@
 
 #import "RWAppDelegate.h"
 #import "RWRootViewController.h"
+#import "RWAPI.h"
+#import "RWUser.h"
+#import "MobClick.h"
+
+static NSInteger const kWXSuccessAlertTag = 1001;
+
+@interface RWAppDelegate ()
+
+
+
+@end
 
 @implementation RWAppDelegate
 
 @synthesize objectManager = _objectManager;
+@synthesize mainViewController = _mainViewController;
 
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
@@ -29,6 +41,17 @@
 {
     //向微信注册
     [WXApi registerApp:@"wxb376681694e365cf"];
+    
+    
+    //
+    // Umeng Track
+    //
+    [MobClick startWithAppkey:UMENG_APP_KEY];
+    [MobClick setAppVersion:@"20130110"];
+    [MobClick setCrashReportEnabled:YES];
+    
+    [MobClick updateOnlineConfig];
+
     
     NSURL *baseURL = [NSURL URLWithString:kBaseURLString];
     self.objectManager = [RKObjectManager managerWithBaseURL:baseURL];
@@ -74,11 +97,11 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    RWRootViewController *mainViewController = [[RWRootViewController alloc] init];
-    mainViewController.view.backgroundColor = [UIColor yellowColor];
-    self.window.rootViewController = mainViewController;
+    self.mainViewController = [[RWRootViewController alloc] init];
+    self.window.rootViewController = self.mainViewController;
 
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 							
@@ -115,12 +138,25 @@
 {
     if([req isKindOfClass:[GetMessageFromWXReq class]])
     {
-//        [self onRequestAppMessage];
+//        [self onRequestAppMessage];    
     }
     else if([req isKindOfClass:[ShowMessageFromWXReq class]])
     {
         ShowMessageFromWXReq* temp = (ShowMessageFromWXReq*)req;
-        NSLog(@"%@",temp.message);
+
+        NSLog(@"%@",temp.message.title);
+        NSLog(@"%@",temp.message.description);        
+        NSLog(@"%@",temp.message.mediaObject);
+        if ([temp.message.mediaObject isKindOfClass:[WXAppExtendObject class]]) {
+            WXAppExtendObject *appExtend = (WXAppExtendObject *)temp.message.mediaObject;
+            NSLog(@"%@",appExtend.extInfo);
+            
+            [self.mainViewController joinGameWithGameId:appExtend.extInfo];
+            return;
+            
+        }
+        
+        
 //        [self onShowMediaMessage:temp.message];
     }
     
@@ -130,12 +166,15 @@
 {
     if([resp isKindOfClass:[SendMessageToWXResp class]])
     {
-        NSString *strTitle = [NSString stringWithFormat:@"发送结果"];
-        NSString *strMsg = [NSString stringWithFormat:@"发送媒体消息结果:%d", resp.errCode];
+        if (resp.errCode == 0) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"sendSuccess", @"发送成功") message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"backToWeChatGetCode",@"返回微信继续游戏")otherButtonTitles:nil];
+            alert.tag = kWXSuccessAlertTag;
+            [alert show];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"sendFail", @"发送失败") message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-//        [alert release];
     }
     else if([resp isKindOfClass:[SendAuthResp class]])
     {
@@ -144,10 +183,13 @@
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
-//        [alert release];
     }
 }
 
-
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (alertView.cancelButtonIndex == buttonIndex && alertView.tag == kWXSuccessAlertTag) {
+        [WXApi openWXApp];
+    }
+}
 
 @end

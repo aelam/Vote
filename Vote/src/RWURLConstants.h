@@ -45,4 +45,16 @@
  * @param id
  * @param operator
  */
-#define kViewGameInfo       @"voteGame!lookGame.action"
+#define kViewGameInfoPath   @"voteGame!lookGame.action"
+
+
+/**
+ * @param id gameid
+ * @param username
+ */
+#define kJoinGamePath       @"voteGame!joinGame.action"
+
+
+
+
+

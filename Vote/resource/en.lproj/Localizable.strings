@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  Vote
+
+  Created by Ryan Wang on 13-1-8.
+  Copyright (c) 2013年 Ryan Wang. All rights reserved.
+*/
+
+
+"redNumber" = "Number of Red";
+"blueNumber" = "Number of Blue";
+
+"autoDeal"  = "Auto Deal";
+
+"createGame" = "Create new game";
+"recreateGame" = "Create new game";
+
+"redCodeWord" = "Red code word";
+"blueCodeWord" = "Blue code word";
+
+
+"required"  = "Required";
+"optional"  = "Optional";
+
+"vote"      = "Vote";
+
+"Create"    = "Create";
+"Settings"  = "Settings";
+"Mood"      = "Mood";
+"Nickname"  = "Nickname";
+"Update"    = "Update";
+
+
+"gameId"    = "Game ID";
+"myCodeWord"= "My code word";
+
+"owner"     = "Owner/Referee";
+
+
+"createSuccess" = "Game created successfully!";
+
+"sendSuccess" = "Sent successfully";
+"sendFail" = "Sent fail";
+"back" = "Back";
+"gameInfo" = "Game Information";
+
+"backToWeChat" = "Back to WeChat";
+"backToWeChatGetCode" = "Back to WeChat, get your code word";
+
+"error" = "Error";
+"pleaseSetYourNickNameInSettings" = "Please set your nickname in Settings";
+"pleaseSetYourMoodInSettings" = "Please set your mood in Settings";
+
+"nicknameIsNull" = "Please set nickname";
+"moodIsNull" = "Please set mood";
+
+"codeWordCantBeNull" = "Code word can't be null";
+"confirm" = "Confirm";
+

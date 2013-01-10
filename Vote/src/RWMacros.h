@@ -11,6 +11,10 @@
 
 #define SAFE_STRING(x) [NSString stringWithFormat:@"%@",x]
 
+#define APP_VERSION   [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey]
+
+
+#define UMENG_APP_KEY   @"50ee5e055270157138000039"
 
 
 #endif

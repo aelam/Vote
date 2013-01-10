@@ -9,7 +9,7 @@
 #import "RWGameSettings.h"
 
 static NSString *kRedRoleCountKey   = @"kRedRoleCountKey";
-static NSString *kBlueRoleCountKey  = @"kRedRoleCountKey";
+static NSString *kBlueRoleCountKey  = @"kBlueRoleCountKey";
 static NSString *kAutoDealKey       = @"kAutoDealKey";
 
 
@@ -68,6 +68,9 @@ static NSString *kAutoDealKey       = @"kAutoDealKey";
     [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithInt:self.blueRoleCount] forKey:kBlueRoleCountKey];
     [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithBool:self.autoDeal] forKey:kAutoDealKey];
     [[NSUserDefaults standardUserDefaults]synchronize];
+    
+    NSLog(@"%@",self);
+
 }
 
 - (NSString *)description {

@@ -4,3 +4,6 @@
 [submodule "nimbus"]
 	path = nimbus
 	url = https://github.com/jverkoey/nimbus.git
+[submodule "SVProgressHUD"]
+	path = SVProgressHUD
+	url = https://github.com/samvermette/SVProgressHUD.git

@@ -1,0 +1,704 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0; }
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+ul :last-child, ol :last-child {
+  margin-bottom: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+    
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0px auto;
+    }
+}
+</style>
+<title>**iOS 统计分析 SDK 使用指南**</title>
+
+</head>
+<body>
+<h1><strong>iOS 统计分析 SDK 使用指南</strong></h1>
+
+<p><a name="1"></a></p>
+
+<h2>1. 介绍</h2>
+
+<p>友盟统计分析服务帮助你跟踪应用的用户使用行为，并且通过友盟的网站后台，提供良好的数据展示。我们目前支持iOS，Android，Windows Phone的平台。您可以在五分钟内轻松完成集成过程。</p>
+
+<p>下载的压缩包中将包括以下内容：</p>
+
+<ul>
+<li><strong>changes_log.html：</strong> 该文件记录友盟SDK的更新日志</li>
+<li><strong>Demo/：</strong> 该文件夹内为Demo工程</li>
+<li><strong>iOS统计分析SDK开发指南.html：</strong> 该文件介绍如何使用统计分析SDK</li>
+<li><strong>libMobClickLibrary.a：</strong> 该文件是SDK的binary文件</li>
+<li><strong>MobClick.h：</strong> 该文件是SDK的头文件</li>
+</ul>
+
+
+<p><a name="2"></a></p>
+
+<h2>2. 集成指南</h2>
+
+<h3>1.建立App，下载SDK</h3>
+
+<p>登录你的帐号后，看到友盟的管理后台，点击"添加新应用"，进入新应用信息填写的页面。</p>
+
+<div style="float:left;width:100%;">
+<a href="http://dev.umeng.com/images/guide/add_app.png"><img src="http://dev.umeng.com/images/guide/small/add_app.png"/></a>
+</div>
+
+
+<div style="clear:both"></div>
+
+
+<p>在新应用信息填写中，请尽量填写真实的信息。 App建立成功后，可以获得该App的AppKey，以及最新的开发指南和SDK文件。
+<br/></p>
+
+<div style="float:left;width:100%;">
+<a href="http://dev.umeng.com/images/guide/1ios.png"><img src="http://dev.umeng.com/images/guide/small/1ios.png"/></a>
+<a href="http://dev.umeng.com/images/guide/sdk_download_ios.png"><img src="http://dev.umeng.com/images/guide/small/sdk_download_ios.png"/></a>
+</div>
+
+
+<div style="clear:both"></div>
+
+
+<blockquote><p><strong>提示</strong><br/>
+您可以通过友盟统计分析平台的特性节省重复建立App的时间。如果您要对App不同的发布渠道进行统计，不需要创建新App （具体使用请查看 5.使用多渠道统计），通过多渠道统计，您可以更方便的对比数据。</p></blockquote>
+
+<h3>2.加入XCode工程，实现基本使用</h3>
+
+<ul>
+<li><p>导入SDK</p>
+
+<ul>
+<li><a href="http://dev.umeng.com/sdkdownload/sdkdownload_ios.html">下载</a> Analytics_iPhone_SDK.zip并解压缩</li>
+<li>可以看到： <code>MobClick.h</code> 和 <code>libMobClickLibrary.a</code></li>
+<li><p>导入插件<br/>
+请在你的工程目录结构中，右键选择<code>Add-&gt;Existing Files…</code>，选择这两个文件。或者将这两个文件拖入XCode工程目录结构中，在弹出的界面中勾选<code>Copy items into destination group's folder(if needed)</code>, 并确保<code>Add To Targets</code>勾选相应的target。</p></li>
+<li><p>添加依赖框架(<code>Framework</code>)和编译器选项<br/>
+<code>TARGETS</code>--><code>Build Phases</code>--><code>Link Binary With Libraries</code>--> <code>+</code> --><code>libz.dylib</code></p>
+
+<p>如果是从老版本友盟SDK( <code>&lt; 1.6.8</code> )升级过来，other linker flag里有-all_load -ObjC的话也最好一并去掉，友盟SDK已经不需要这两个参数了.</p></li>
+</ul>
+</li>
+<li><p>嵌入代码</p>
+
+<ul>
+<li><p>打开<code>*AppDelegate.m</code>(*代表你的工程名字）
+在<br/><code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</code> <br />方法内添加如下语句：<br /></p>
+
+<p>  <code>objectivec
+  [MobClick startWithAppkey:@"xxxxxxxxxxxxxxx"];
+ </code></p>
+
+<p>应用程序每次只在启动时会向服务器发送一次消息(BATCH策略)，在应用使用过程中产生的所有消息都会在下次启动时候发送。 如果应用程序启动时处在不联网状态，那么消息将会缓存在本地，下次再尝试发送。<br/><br/>如果需要使用实时(REALTIME策略)发送方式，或者修改渠道名称(<code>channelId</code>)，请使用下面的方法：</p>
+
+<p>  <code>objectivec
+  [MobClick startWithAppkey:@"xxxxxxxxxxxxxxx" reportPolicy:REALTIME channelId:nil];
+ </code></p>
+
+<p>(使用建议，建议使用<code>BATCH</code>策略，更省流量， <code>channelId</code> 为<code>nil</code>或<code>@""</code>时，默认会被被当作<code>@"App Store"</code>渠道)
+其中ReportPolicy可选值有: <code>REALTIME</code>,<code>BATCH</code>,<code>SENDDAILY</code>,<code>SENDWIFIONLY</code>,<code>SEND_INTERVAL</code>,<code>SEND_ON_EXIT</code>。</p>
+
+<p> 其中<code>REALTIME</code>,<code>SENDWIFIONLY</code> 只在<code>模拟器</code>和<code>DEBUG</code>模式下生效，真机release模式会自动改成<code>BATCH</code>。
+ 关于发送策略的调整，请参见
+<a href="http://blog.umeng.com/index.php/2012/12/0601/" target="_blank">关于发送策略及发送策略变更的说明</a></p>
+
+<p><code>SEND_INTERVAL</code> 为按最小间隔发送,默认为<code>10秒</code>,取值范围为<code>10</code> 到 <code>86400</code>(一天)， 如果不在这个区间的话，会按<code>10</code>设置。</p>
+
+<p>你可以调用  <br/>
+<code>+ (void)setLogSendInterval:(double)second;</code> 来改变这个最小间隔值。</p>
+
+<p><code>SEND_ON_EXIT</code> 为退出或进入后台时发送,这种发送策略在App运行过程中不发送，对开发者和用户的影响最小。
+不过这种发送策略只在<code>iOS &gt; 4.0</code>时才会生效, <code>iOS &lt; 4.0</code> 会被自动调整为<code>BATCH</code>。</p></li>
+</ul>
+</li>
+</ul>
+
+
+<p>到此，基本统计功能集成已经完成。</p>
+
+<p><a name="3"></a></p>
+
+<h2>3.使用自定义事件</h2>
+
+<p>使用自定义事件功能请先在网站应用管理后台(设置->编辑自定义事件)中添加相应的自定义事件后，服务器才会对相应的自定义事件请求进行处理。这里我们将提供几个简单而通用的接口：</p>
+
+<ul>
+<li><p>event数量统计</p>
+
+<ul>
+<li>  在您希望跟踪的代码部分，调用如下方法：</li>
+</ul>
+
+
+<p>  <code>objectivec
+  [MobClick event:(NSString *)eventId];
+ </code>
+  <code>eventId</code>为当前统计的事件ID。</p>
+
+<blockquote><p><strong>示例：</strong>统计微博应用中"转发"事件发生的次数，那么在转发的函数里调用</p></blockquote>
+
+<p>  <code>objectivec
+  [MobClick event:@"Forward"];
+ </code></p>
+
+<ul>
+<li>如果想同时记录事件的不同属性及取值，可以调用如下方法：</li>
+</ul>
+
+
+<p>  <code>objectivec
+  [MobClick event:(NSString *)eventId attributes:(NSDictionary *)attributes];
+ </code></p>
+
+<p>  attributes为当前事件的属性和取值（键值对）。</p>
+
+<blockquote><p><strong>示例：</strong>统计电商应用中“购买”事件发生的次数，以及购买的商品类型及数量，那么在购买的函数里调用：</p></blockquote>
+
+<p>  <code>objectivec
+  NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                        @"book", @"type", @"3", @"quantity", nil];
+  [MobClick event:@"purchase" attributes:dict];
+ </code></p>
+
+<ul>
+<li>有时，只需考虑事件在一个属性上的取值，可以调用如下方法：</li>
+</ul>
+
+
+<p>  <code>objectivec
+  [MobClick event:(NSString *)eventId label:(NSString *)label];
+ </code>
+  <code>label</code>为当前事件的取值。</p>
+
+<blockquote><p><strong>示例：</strong> 统计游戏中“死亡”事件发生的关卡数，那么可以在死亡的函数里调用</p></blockquote>
+
+<p>  <code>objectivec
+  [MobClick event:@"player_dead" label:@"level"];
+ </code></p></li>
+<li><p>event时长统计<br>
+有的事件是持续发生的，需要记录其持续的时间，我们提供了两种解决方法。<br/>
+在事件开始和结束时调用<code>[MobClick beginEvent:]</code>和<code>[MobClick endEvent:]</code>两个函数。</p>
+
+<ul>
+<li> 如果只关心事件时长或事件对应的label时长，参考上面的方法参数。</li>
+</ul>
+
+
+<blockquote><p><strong>示例：</strong> 跟踪播放音乐事件发生的总时间，那么在音乐播放开始时调用：</p></blockquote>
+
+<p>  <code>objectivec
+  [MobClick beginEvent:@"music_play"];
+ </code></p>
+
+<p>  在音乐播放结束时调用：</p>
+
+<p>  <code>objectivec
+  [MobClick endEvent:@"music_play"];
+ </code></p>
+
+<ul>
+<li>  如果想追踪时长的事件包含多个属性，则在调用计时函数时需增加一个参数<code>"String flag"</code>，即</li>
+</ul>
+
+
+<p>  <code>objectivec
+  [MobClick beginEvent:(NSString *)eventId primarykey:(NSString *)keyName attributes:(NSDictionary *)attributes];
+ </code></p>
+
+<p>  <code>objectivec
+  [MobClick endEvent:(NSString *)eventId primarykey:(NSString *)keyName];
+ </code></p>
+
+<p>  <code>primarykey</code>这个参数用于和<code>event_id</code>一起标示一个唯一事件，并不会被统计；</p>
+
+<p>  对于同一个事件在<code>beginEvent</code>和<code>endEvent</code> 中要传递相同的<code>eventId</code> 和 <code>primarykey</code></p>
+
+<p>  <em>（为什么要增加<code>primarykey</code>，请看时长统计常见错误案例）</em></p>
+
+<p>  例如，跟踪每种类型的音乐播放了多久，那么在音乐播放开始时调用</p>
+
+<p>  <code>objectivec
+  NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                        @"popular", @"type", @"JJLin", @"artist",@"registered",@"User_status", nil];
+  [MobClick beginEvent:@"music" primarykey:@"m7" attributes:dict];
+ </code></p>
+
+<p>  在音乐播放结束时调用：</p>
+
+<p>  <code>objectivec
+  [MobClick endEvent:@"music" primarykey:@"m7"];
+ </code></p>
+
+<ul>
+<li>自己计算并上传event时长</li>
+</ul>
+
+
+<p>  在您想跟踪时长的代码部分，调用如下方法（单位为毫秒）</p>
+
+<p>  <code>objectivec
+  [MobClick event:(NSString *)eventId durations:(int)microseconds];
+  [MobClick event:(NSString *)eventId label:(NSString *)label durations:(int)microseconds];
+  [MobClick event:(NSString *)eventId attributes:(NSDictionary *)attributes durations:(int)microseconds];
+ </code></p>
+
+<p>  这种方法比较灵活，集成更方便，出错率较低。</p>
+
+<p>  时长是友盟统计的一个新功能，使用过程中可能会出现一些常见的错误，开发者应该尽量的避免。</p>
+
+<blockquote><p><strong>注意</strong><br/>
+  1.  每个<code>event</code>的<code>attributes</code>不能超过10个<br/>
+  2.  <code>eventId</code>、<code>attributes</code>中<code>key</code>和<code>value</code>都不能使用空格和特殊字符，且长度不能超过255个字符（否则将截取前255个字符）<br/>
+  3.  <code>id</code>， <code>ts</code>， <code>du</code>是保留字段，不能作为<code>eventId</code>及<code>key</code>的名称<br/></p></blockquote></li>
+</ul>
+
+
+<p><a name="4"></a></p>
+
+<h2>4.使用多渠道统计</h2>
+
+<p>当你选择多个分发渠道时，例如某Cydia源，或某网站，可以为不同渠道进行分发渠道的设定，分别打包成不同的渠道包，以便统计终端用户得到程序的来源。 如果您只有<code>App Store</code>一个分发渠道，则不再需要做设定，我们会默认标记为<code>App Store</code></p>
+
+<p>参照上面 (2.加入XCode工程，实现基本使用)</p>
+
+<blockquote><p><strong>注意：</strong><br/>每台设备仅记录首次安装激活的渠道，在其他渠道再次安装不会重复计量。
+ 所以在测试不同的渠道的时候，请使用不同的设备来分别测试。</p></blockquote>
+
+<p>例如您在91发布，需要统计91渠道：</p>
+
+<p><code>objectivec
+- [MobClick startWithAppkey:@"xxxxxxxxxxxxxxx" reportPolicy:REALTIME channelId:@"91store"];
+</code>
+例如您在同步推发布，需要统计同步推渠道：</p>
+
+<p><code>objectivec
+- [MobClick startWithAppkey:@"xxxxxxxxxxxxxxx" reportPolicy:REALTIME channelId:@"tongbu"];
+</code>
+ <a name="5"></a></p>
+
+<h2>5.按渠道自动更新检测</h2>
+
+<p>在友盟的网站上分渠道提交app的版本号，更新日志及openURL后，您只需添加一行代码来完成自动更新检查。<br>
+请将下面代码添加到<code>[MobClick startWithAppkey:@"xxxxxxxxxxxxxxx"];</code>之后</p>
+
+<p><code>objectivec
+[MobClick checkUpdate];
+</code></p>
+
+<p>如果想对<code>UIAlertView</code>的标题和按钮文字做多国语言支持，则需要对下面三个词组做翻译。</p>
+
+<blockquote><p>  <code>umUpdateTitle</code>  ：标题</p>
+
+<p>  <code>umUpdateCancel</code> : 放弃按钮</p>
+
+<p>  <code>umUpdateOK</code>     : 确定按钮</p></blockquote>
+
+<p>当然您可以更简单的自定义标题和按钮的文字</p>
+
+<p><code>objectivec
+[MobClick checkUpdate:@"New version" cancelButtonTitle:@"Skip" otherButtonTitles:@"Goto Store"];
+</code></p>
+
+<p>如果默认的行为不满足你的需求，您可以完全自定义自动更新检查行为。只需实现</p>
+
+<p><code>objectivec
+- (void)appUpdate:(NSDictionary *)appInfo;
+</code>
+这个<code>delegate</code>方法。<code>appInfo</code>是服务器传回来的app相关信息。</p>
+
+<p>Xcode4有两个版本号，一个是<code>Version</code>,另一个是<code>Build</code>,对应于Info.plist的字段名分别为<code>CFBundleShortVersionString</code>,<code>CFBundleVersion</code>。
+友盟SDK为了兼容Xcode3的工程，默认取的是<code>Build</code>号，如果需要取Xcode4的<code>Version</code>，可以使用下面
+的方法。</p>
+
+<p><code>objectivec
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    [MobClick setAppVersion:version];
+</code></p>
+
+<p><a name="6"></a></p>
+
+<h2>6.使用在线参数功能，可以让你动态修改应用中的参数值</h2>
+
+<blockquote><p><strong>示例：</strong> 动态修改应用的欢迎语，修改应用中开关选项的"on"或"off"，以及类似游戏中虚拟物品的价格。</p></blockquote>
+
+<p>您需要在</p>
+
+<p><code>objectivec
+[MobClick startWithAppkey:@"xxxxxxxxxxxxxxx"];
+</code></p>
+
+<p>之后添加</p>
+
+<p><code>objectivec
+[MobClick updateOnlineConfig];
+</code></p>
+
+<p>这句代码从服务器获取在线参数，并缓存本地。 当在项目里需要获取某个具体参数时调用</p>
+
+<p><code>objectivec
+[MobClick getConfigParams:@"xxxx"];
+</code></p>
+
+<p><code>xxxx</code>为友盟服务器上事先设置好的<code>key</code>。 如果你想获取所有的在线参数，请使用.</p>
+
+<p><code>objectivec
+[MobClick getConfigParams];
+</code></p>
+
+<p>这两个方法都是从<code>[NSUserDefaults standardUserDefaults]</code>获取缓存的值， 所以上面的<code>[MobClick updateOnlineConfig]</code>方法要先在app启动时被调用。</p>
+
+<blockquote><p><strong>注意：</strong><br/><code>updateOnlineConfig</code> 在app启动时 <code>application:didFinishLaunchingWithOptions:</code> 执行，前后台切换是不会执行的，如果需要在切换时更新在线参数，可以在相关回调里执行<code>updateOnlineConfig</code> 。</p></blockquote>
+
+<p>如果您需要知道在线参数何时获取完毕，可以监听 <code>UMOnlineConfigDidFinishedNotification</code> ,当这个通知发生时，最新的在线参数会传递给<code>notification.userInfo</code>。</p>
+
+<p>如果此时未联网或在线参数获取失败，这个通知是不会被发出的。</p>
+
+<p>您可以用类似下面的代码来完成这个过程:</p>
+
+<p><code>objectivec
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onlineConfigCallBack:) name:UMOnlineConfigDidFinishedNotification object:nil];
+</code></p>
+
+<p><code>objectivec
+- (void)onlineConfigCallBack:(NSNotification *)notification {
+    NSLog(@"online config has fininshed and params = %@", notification.userInfo);
+}
+</code></p>
+
+<p>最后别忘记调用<code>removeObserver:name:object:</code> 删除这个监听。</p>
+
+<p><a name="7"></a></p>
+
+<h2>7.动态调整发送策略</h2>
+
+<p>现在您可以在线更改SDK端的数据报告发送策略了，SDK将根据以下优先级决定最终的数据发送策略。<br/>
+在线配置指定的报告发送策略， 由API调用指定的报告发送策略， 默认使用启动时发送策略。</p>
+
+<p>和上面的使用在线参数功能一样，您需要在</p>
+
+<p><code>objectivec
+[MobClick startWithAppkey:@"xxxxxxxxxxxxxxx"];
+</code></p>
+
+<p>之后在友盟网站设置发送策略，最后添加</p>
+
+<p><code>objectivec
+[MobClick updateOnlineConfig];
+</code></p>
+
+<p>这句代码从服务器获取在线参数，同时获取您的发送策略，并缓存本地。 剩下的都交给友盟SDK来做了。<br/></p>
+
+<blockquote><p><strong>注意：</strong><br/><code>updateOnlineConfig</code> 在app启动时 <code>application:didFinishLaunchingWithOptions:</code> 执行，前后台切换是不会执行的，如果需要在切换时更新在线参数，可以在相关回调里执行<code>updateOnlineConfig</code> 。</p></blockquote>
+
+<p><a name="8"></a></p>
+
+<h2>8.页面访问路径统计</h2>
+
+<p>您可以统计每个View停留时长及路径。<br/>需要配对使用</p>
+
+<p><code>objectivec
+ - (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"PageOne"];
+}    
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"PageOne"];
+}        
+</code></p>
+
+<p>如果您想自己传递时长（单位为秒），我们也提供了方法。</p>
+
+<p><code>objectivec
+ + (void)logPageView:(NSString *)pageName seconds:(int)seconds;   
+</code></p>
+
+<h1></h1>
+
+<p>如果在使用中遇到任何问题，如果你需要帮助，请联系我们<a href="support@umeng.com">support@umeng.com</a></p>
+
+<p>友盟团队</br>
+<a href="http://www.umeng.com">http://www.umeng.com</a></p>
+</body>
+</html>

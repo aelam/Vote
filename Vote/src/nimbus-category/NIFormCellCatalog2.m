@@ -174,7 +174,8 @@
 		NITextInputFormElement2* textInputElement = (NITextInputFormElement2 *)self.element;
 		
 		UILabel *label = [[UILabel alloc] init];
-		
+		label.backgroundColor = [UIColor clearColor];
+        label.font = [UIFont boldSystemFontOfSize:17];
 		NSString *title = textInputElement.title;
 		label.text = [title stringByAppendingFormat:@"%@", (textInputElement.required ? @" * " : @" ")];
 		
@@ -277,9 +278,8 @@
         
         UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
         toolbar.tintColor = [UIColor blueColor];
-//        UIBarButtonItem *canelItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancelChanges:)];
         UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-        UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStyleDone target:self action:@selector(submitChanges:)];
+        UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"confirm", @"确定") style:UIBarButtonItemStyleDone target:self action:@selector(submitChanges:)];
         toolbar.items = [NSArray arrayWithObjects:/*canelItem,*/spaceItem,doneItem, nil];
         _numberField.inputView = _numberPicker;
         _numberField.inputAccessoryView = toolbar;
@@ -369,7 +369,7 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     NINumberPickerFormElement *elemet = (NINumberPickerFormElement *)self.element;
-    NSInteger count = elemet.maxValue - elemet.minValue;
+    NSInteger count = elemet.maxValue + 1 - elemet.minValue;
 
     return count;
 }

@@ -32,7 +32,7 @@
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
 
-        self.title = @"游戏";
+        self.title = NSLocalizedString(@"create",@"游戏");
         
         _actions = [[NITableViewActions alloc] initWithTarget:self];
         
@@ -44,12 +44,12 @@
 //         @"Attributed Label",
          
          [_actions attachToObject:
-          [NITitleCellObject objectWithTitle:@"创建游戏"]
+          [NITitleCellObject objectWithTitle:NSLocalizedString(@"gameId",@"创建游戏")]
                   navigationBlock:
           NIPushControllerAction([RWCreateGameViewController class])],
 
          [_actions attachToObject:
-          [NITitleCellObject objectWithTitle:@"分享游戏"]
+          [NITitleCellObject objectWithTitle:NSLocalizedString(@"share",@"分享游戏")]
                   navigationBlock:
           NIPushControllerAction([RWCreateGameViewController class])],
          

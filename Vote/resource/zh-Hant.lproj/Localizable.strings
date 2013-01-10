@@ -1,0 +1,60 @@
+/* 
+  Localizable.strings
+  Vote
+
+  Created by Ryan Wang on 13-1-8.
+  Copyright (c) 2013年 Ryan Wang. All rights reserved.
+*/
+
+
+
+"redNumber" = "红方人数";
+"blueNumber" = "蓝色方人数";
+
+
+
+"Create"    = "创建游戏";
+"Settings"  = "设置";
+"Mood"      = "个性签名";
+"nickname"  = "昵称";
+"Update"    = "更新";
+
+//"redNumber" = "Number of Red";
+//"blueNumber" = "Number of Blue";
+
+"autoDeal"  = "自动发牌";
+
+"createGame" = "创建游戏";
+"recreateGame" = "重新创建游戏";
+
+"redCodeWord" = "红方暗号";
+"blueCodeWord" = "蓝方暗号";
+
+
+"required"  = "必须";
+"optional"  = "可选";
+
+"vote"      = "我是卧底";
+
+
+"gameId"    = "Game ID";
+"myCodeWord"= "My code word";
+
+"owner"     = "创建者/裁判";
+
+
+"sendSuccess" = "Sent successfully";
+"sendFail" = "Sent fail";
+"back" = "Back";
+"gameInfo" = "Game Information";
+
+"backToWeChat" = "Back to WeChat";
+"backToWeChatGetCode" = "返回微信,获取暗号";
+
+"error" = "错误";
+"pleaseSetYourNickNameInSettings" = "Please set your nickname in Settings";
+"pleaseSetYourMoodInSettings" = "Please set your mood in Settings";
+
+"codeWordCantBeNull" = "Code word can't be null";
+
+

@@ -10,4 +10,6 @@
 
 @interface RWRootViewController : UITabBarController
 
+- (void)joinGameWithGameId:(NSString *)gameId;
+
 @end

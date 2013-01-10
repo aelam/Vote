@@ -1,0 +1,35 @@
+{
+    "_object" =     {
+        badCount = 1;
+        badWord = "\U906e\U9633\U5e3d";
+        gameInfoObj =         {
+            badItems =             (
+            );
+            goodItems =             (
+                "\U6c6a\U54e5\U54e5"
+            );
+        };
+        gmtCreate =         {
+            date = 8;
+            day = 2;
+            hours = 0;
+            minutes = 0;
+            month = 0;
+            nanos = 0;
+            seconds = 0;
+            time = 1357574400000;
+            timezoneOffset = "-480";
+            year = 113;
+        };
+        gmtModify = "<null>";
+        goodCount = 3;
+        goodWord = "\U9e2d\U820c\U5e3d";
+        id = 133;
+        name = 11;
+        operator = ssss;
+        status = C;
+        type = auto;
+        wordIndex = 144;
+    };
+    success = 1;
+}

@@ -44,18 +44,27 @@
 		944DECF016998604007D3C3A /* RWModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 944DECEE16998604007D3C3A /* RWModels.xcdatamodeld */; };
 		944DED2C1699ADFF007D3C3A /* AFHTTPClient+Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 944DED2B1699ADFF007D3C3A /* AFHTTPClient+Singleton.m */; };
 		94665DD7168C1FFA00E55DEA /* libWeChatSDK_armv7_armv7s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94665DD3168C1FFA00E55DEA /* libWeChatSDK_armv7_armv7s.a */; };
+		9482C744169C786E003695B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9482C742169C786E003695B7 /* main.m */; };
+		9482C74B169C79F5003695B7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9482C74D169C79F5003695B7 /* Localizable.strings */; };
 		94909910169696DE00985084 /* NIFormCellCatalog2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9490990F169696DE00985084 /* NIFormCellCatalog2.m */; };
 		949099921696BC6C00985084 /* RWCreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949099911696BC6C00985084 /* RWCreateGameViewController.m */; };
 		949099961696BD2500985084 /* RWGameSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 949099951696BD2500985084 /* RWGameSettings.m */; };
 		94CBD614169B0B1500D2DE86 /* RKSeedDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 94CBD613169B0B1500D2DE86 /* RKSeedDatabase.sqlite */; };
 		94CBD61F169B24CF00D2DE86 /* WXApi+EasyWrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CBD61E169B24CF00D2DE86 /* WXApi+EasyWrap.m */; };
+		94D0FBB3169BC1C10034F035 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94D0FBB0169BC1C10034F035 /* SVProgressHUD.bundle */; };
+		94D0FBB4169BC1C10034F035 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D0FBB2169BC1C10034F035 /* SVProgressHUD.m */; };
+		94D0FBB6169BC2900034F035 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D0FBB5169BC2900034F035 /* QuartzCore.framework */; };
+		94D0FBB9169C260F0034F035 /* RWAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D0FBB8169C260F0034F035 /* RWAPI.m */; };
+		94D0FBC0169C4A5D0034F035 /* RWGameInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D0FBBF169C4A5D0034F035 /* RWGameInfoController.m */; };
+		94D0FBC8169C501E0034F035 /* game_info.json in Resources */ = {isa = PBXBuildFile; fileRef = 94D0FBC7169C501E0034F035 /* game_info.json */; };
+		94D34B6F169E96D20065BF00 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D34B6D169E96D20065BF00 /* libMobClickLibrary.a */; };
+		94D34B71169E96EF0065BF00 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D34B70169E96EE0065BF00 /* libz.dylib */; };
 		94D394CE169ABB0F007F5F2F /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94D394CD169ABB0F007F5F2F /* DefaultSettings.plist */; };
 		94D44473168E057B002AECB4 /* RWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D44472168E057B002AECB4 /* RWMainViewController.m */; };
 		94D51F52168B29D400261F3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D51F51168B29D400261F3C /* UIKit.framework */; };
 		94D51F54168B29D400261F3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D51F53168B29D400261F3C /* Foundation.framework */; };
 		94D51F56168B29D400261F3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D51F55168B29D400261F3C /* CoreGraphics.framework */; };
 		94D51F5C168B29D400261F3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94D51F5A168B29D400261F3C /* InfoPlist.strings */; };
-		94D51F5E168B29D400261F3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D51F5D168B29D400261F3C /* main.m */; };
 		94D51F64168B29D400261F3C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D51F63168B29D400261F3C /* Default.png */; };
 		94D51F66168B29D400261F3C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D51F65168B29D400261F3C /* Default@2x.png */; };
 		94D51F68168B29D400261F3C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D51F67168B29D400261F3C /* Default-568h@2x.png */; };
@@ -182,6 +191,17 @@
 		94665DD3168C1FFA00E55DEA /* libWeChatSDK_armv7_armv7s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK_armv7_armv7s.a; sourceTree = "<group>"; };
 		94665DD4168C1FFA00E55DEA /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		94665DD5168C1FFA00E55DEA /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		9482C742169C786E003695B7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9482C743169C786E003695B7 /* Vote-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Vote-Prefix.pch"; sourceTree = "<group>"; };
+		9482C745169C7929003695B7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9482C746169C792F003695B7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		9482C747169C7934003695B7 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		9482C748169C794F003695B7 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9482C74C169C79F5003695B7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9482C74E169C79FA003695B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9482C74F169C79FB003695B7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9482C750169C79FC003695B7 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9482C751169C79FD003695B7 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9490990E169696DE00985084 /* NIFormCellCatalog2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIFormCellCatalog2.h; sourceTree = "<group>"; };
 		9490990F169696DE00985084 /* NIFormCellCatalog2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIFormCellCatalog2.m; sourceTree = "<group>"; };
 		949099901696BC6C00985084 /* RWCreateGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWCreateGameViewController.h; sourceTree = "<group>"; };
@@ -192,6 +212,18 @@
 		94CBD615169B1D7300D2DE86 /* RWMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWMacros.h; sourceTree = "<group>"; };
 		94CBD61D169B24CF00D2DE86 /* WXApi+EasyWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXApi+EasyWrap.h"; sourceTree = "<group>"; };
 		94CBD61E169B24CF00D2DE86 /* WXApi+EasyWrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXApi+EasyWrap.m"; sourceTree = "<group>"; };
+		94D0FBB0169BC1C10034F035 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		94D0FBB1169BC1C10034F035 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		94D0FBB2169BC1C10034F035 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		94D0FBB5169BC2900034F035 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		94D0FBB7169C260F0034F035 /* RWAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RWAPI.h; path = Vote/src/request/RWAPI.h; sourceTree = SOURCE_ROOT; };
+		94D0FBB8169C260F0034F035 /* RWAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RWAPI.m; path = Vote/src/request/RWAPI.m; sourceTree = SOURCE_ROOT; };
+		94D0FBBE169C4A5C0034F035 /* RWGameInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWGameInfoController.h; sourceTree = "<group>"; };
+		94D0FBBF169C4A5D0034F035 /* RWGameInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWGameInfoController.m; sourceTree = "<group>"; };
+		94D0FBC7169C501E0034F035 /* game_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = game_info.json; sourceTree = "<group>"; };
+		94D34B6D169E96D20065BF00 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		94D34B6E169E96D20065BF00 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		94D34B70169E96EE0065BF00 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		94D394CD169ABB0F007F5F2F /* DefaultSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
 		94D44471168E057A002AECB4 /* RWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWMainViewController.h; sourceTree = "<group>"; };
 		94D44472168E057B002AECB4 /* RWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWMainViewController.m; sourceTree = "<group>"; };
@@ -201,8 +233,6 @@
 		94D51F55168B29D400261F3C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		94D51F59168B29D400261F3C /* Vote-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Vote-Info.plist"; sourceTree = "<group>"; };
 		94D51F5B168B29D400261F3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		94D51F5D168B29D400261F3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		94D51F5F168B29D400261F3C /* Vote-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vote-Prefix.pch"; sourceTree = "<group>"; };
 		94D51F63168B29D400261F3C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		94D51F65168B29D400261F3C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		94D51F67168B29D400261F3C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -219,6 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94D34B71169E96EF0065BF00 /* libz.dylib in Frameworks */,
 				944DEB5E16989323007D3C3A /* libRestKit.a in Frameworks */,
 				94D51F52168B29D400261F3C /* UIKit.framework in Frameworks */,
 				94D51F54168B29D400261F3C /* Foundation.framework in Frameworks */,
@@ -227,6 +258,8 @@
 				940C32D3168C166100BCB8FB /* SystemConfiguration.framework in Frameworks */,
 				94665DD7168C1FFA00E55DEA /* libWeChatSDK_armv7_armv7s.a in Frameworks */,
 				944DEC8316996377007D3C3A /* CoreData.framework in Frameworks */,
+				94D0FBB6169BC2900034F035 /* QuartzCore.framework in Frameworks */,
+				94D34B6F169E96D20065BF00 /* libMobClickLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,9 +379,12 @@
 		9490998B1696BA9400985084 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				94D0FBC7169C501E0034F035 /* game_info.json */,
 				944DEC9816996DA0007D3C3A /* users.json */,
 				944DED2A1699ADFF007D3C3A /* AFHTTPClient+Singleton.h */,
 				944DED2B1699ADFF007D3C3A /* AFHTTPClient+Singleton.m */,
+				94D0FBB7169C260F0034F035 /* RWAPI.h */,
+				94D0FBB8169C260F0034F035 /* RWAPI.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -366,6 +402,27 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		94D0FBAF169BC1C10034F035 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				94D0FBB0169BC1C10034F035 /* SVProgressHUD.bundle */,
+				94D0FBB1169BC1C10034F035 /* SVProgressHUD.h */,
+				94D0FBB2169BC1C10034F035 /* SVProgressHUD.m */,
+			);
+			name = SVProgressHUD;
+			path = SVProgressHUD/SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		94D34B6C169E96D20065BF00 /* UMAnalytics_Sdk_2.1.3.OpenUDID */ = {
+			isa = PBXGroup;
+			children = (
+				94D34B6D169E96D20065BF00 /* libMobClickLibrary.a */,
+				94D34B6E169E96D20065BF00 /* MobClick.h */,
+			);
+			name = UMAnalytics_Sdk_2.1.3.OpenUDID;
+			path = Vote/Frameworks/Analytics_iOS_SDK_2.1.3.OpenUDID/UMAnalytics_Sdk_2.1.3.OpenUDID;
+			sourceTree = "<group>";
+		};
 		94D44467168DFEF0002AECB4 /* nimbus-category */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +435,7 @@
 		94D51F42168B29D400261F3C = {
 			isa = PBXGroup;
 			children = (
+				94D0FBAF169BC1C10034F035 /* SVProgressHUD */,
 				944DEBC316989607007D3C3A /* nimbus */,
 				944DEB4A16989307007D3C3A /* RestKit.xcodeproj */,
 				94D51F57168B29D400261F3C /* Vote */,
@@ -397,6 +455,9 @@
 		94D51F50168B29D400261F3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94D34B70169E96EE0065BF00 /* libz.dylib */,
+				94D34B6C169E96D20065BF00 /* UMAnalytics_Sdk_2.1.3.OpenUDID */,
+				94D0FBB5169BC2900034F035 /* QuartzCore.framework */,
 				944DEC8216996377007D3C3A /* CoreData.framework */,
 				94665DD1168C1FFA00E55DEA /* libWeChat */,
 				940C32D2168C166100BCB8FB /* SystemConfiguration.framework */,
@@ -421,10 +482,10 @@
 		94D51F58168B29D400261F3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9482C742169C786E003695B7 /* main.m */,
+				9482C743169C786E003695B7 /* Vote-Prefix.pch */,
 				94D51F59168B29D400261F3C /* Vote-Info.plist */,
 				94D51F5A168B29D400261F3C /* InfoPlist.strings */,
-				94D51F5D168B29D400261F3C /* main.m */,
-				94D51F5F168B29D400261F3C /* Vote-Prefix.pch */,
 				94D51F63168B29D400261F3C /* Default.png */,
 				94D51F65168B29D400261F3C /* Default@2x.png */,
 				94D51F67168B29D400261F3C /* Default-568h@2x.png */,
@@ -436,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				94D394CD169ABB0F007F5F2F /* DefaultSettings.plist */,
+				9482C74D169C79F5003695B7 /* Localizable.strings */,
 			);
 			path = resource;
 			sourceTree = "<group>";
@@ -452,6 +514,8 @@
 				94D51F7A168B2B0500261F3C /* RWAppDelegate.m */,
 				949099901696BC6C00985084 /* RWCreateGameViewController.h */,
 				949099911696BC6C00985084 /* RWCreateGameViewController.m */,
+				94D0FBBE169C4A5C0034F035 /* RWGameInfoController.h */,
+				94D0FBBF169C4A5D0034F035 /* RWGameInfoController.m */,
 				94D51F7B168B2B0500261F3C /* RWSettingsViewController.h */,
 				94D51F7C168B2B0500261F3C /* RWSettingsViewController.m */,
 				94D51F82168B2B3A00261F3C /* RWRootViewController.h */,
@@ -501,6 +565,10 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
+				"zh-Hans",
+				"zh-Hant",
+				ko,
 			);
 			mainGroup = 94D51F42168B29D400261F3C;
 			productRefGroup = 94D51F4E168B29D400261F3C /* Products */;
@@ -561,6 +629,9 @@
 				944DEC9916996DA0007D3C3A /* users.json in Resources */,
 				94D394CE169ABB0F007F5F2F /* DefaultSettings.plist in Resources */,
 				94CBD614169B0B1500D2DE86 /* RKSeedDatabase.sqlite in Resources */,
+				94D0FBB3169BC1C10034F035 /* SVProgressHUD.bundle in Resources */,
+				94D0FBC8169C501E0034F035 /* game_info.json in Resources */,
+				9482C74B169C79F5003695B7 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,7 +642,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94D51F5E168B29D400261F3C /* main.m in Sources */,
 				94D51F7F168B2B0500261F3C /* RWAppDelegate.m in Sources */,
 				94D51F80168B2B0500261F3C /* RWSettingsViewController.m in Sources */,
 				94D51F84168B2B3A00261F3C /* RWRootViewController.m in Sources */,
@@ -611,6 +681,10 @@
 				944DECF016998604007D3C3A /* RWModels.xcdatamodeld in Sources */,
 				944DED2C1699ADFF007D3C3A /* AFHTTPClient+Singleton.m in Sources */,
 				94CBD61F169B24CF00D2DE86 /* WXApi+EasyWrap.m in Sources */,
+				94D0FBB4169BC1C10034F035 /* SVProgressHUD.m in Sources */,
+				94D0FBB9169C260F0034F035 /* RWAPI.m in Sources */,
+				94D0FBC0169C4A5D0034F035 /* RWGameInfoController.m in Sources */,
+				9482C744169C786E003695B7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,10 +699,26 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		9482C74D169C79F5003695B7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9482C74C169C79F5003695B7 /* ja */,
+				9482C74E169C79FA003695B7 /* en */,
+				9482C74F169C79FB003695B7 /* zh-Hans */,
+				9482C750169C79FC003695B7 /* zh-Hant */,
+				9482C751169C79FD003695B7 /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		94D51F5A168B29D400261F3C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				94D51F5B168B29D400261F3C /* en */,
+				9482C745169C7929003695B7 /* ja */,
+				9482C746169C792F003695B7 /* zh-Hans */,
+				9482C747169C7934003695B7 /* zh-Hant */,
+				9482C748169C794F003695B7 /* ko */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -689,6 +779,8 @@
 		94D51F72168B29D400261F3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Vote/Vote-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Build/Vote/Build/Headers\"";
@@ -697,8 +789,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Vote/Frameworks/libWeChat\"",
+					"\"$(SRCROOT)/Vote/Frameworks/Analytics_iOS_SDK_2.1.3.OpenUDID/UMAnalytics_Sdk_2.1.3.OpenUDID\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -707,6 +802,7 @@
 		94D51F73168B29D400261F3C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Vote/Vote-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Build/Vote/Build/Headers\"";
@@ -715,8 +811,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Vote/Frameworks/libWeChat\"",
+					"\"$(SRCROOT)/Vote/Frameworks/Analytics_iOS_SDK_2.1.3.OpenUDID/UMAnalytics_Sdk_2.1.3.OpenUDID\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};

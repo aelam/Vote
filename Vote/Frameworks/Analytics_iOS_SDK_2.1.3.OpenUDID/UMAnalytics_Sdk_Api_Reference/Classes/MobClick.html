@@ -1,0 +1,2325 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>MobClick Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 858)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">UMAnalytics </a></h1>
+				<a id="developerHome" href="../index.html">umeng.com</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">MobClick Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/appLaunched">&nbsp;&nbsp;&nbsp;&nbsp;+ appLaunched</option>
+	
+	<option value="//api/name/appTerminated">&nbsp;&nbsp;&nbsp;&nbsp;+ appTerminated</option>
+	
+	<option value="//api/name/beginEvent:">&nbsp;&nbsp;&nbsp;&nbsp;+ beginEvent:</option>
+	
+	<option value="//api/name/beginEvent:label:">&nbsp;&nbsp;&nbsp;&nbsp;+ beginEvent:label:</option>
+	
+	<option value="//api/name/beginEvent:primarykey:attributes:">&nbsp;&nbsp;&nbsp;&nbsp;+ beginEvent:primarykey:attributes:</option>
+	
+	<option value="//api/name/checkUpdate">&nbsp;&nbsp;&nbsp;&nbsp;+ checkUpdate</option>
+	
+	<option value="//api/name/checkUpdate:cancelButtonTitle:otherButtonTitles:">&nbsp;&nbsp;&nbsp;&nbsp;+ checkUpdate:cancelButtonTitle:otherButtonTitles:</option>
+	
+	<option value="//api/name/checkUpdateWithDelegate:selector:">&nbsp;&nbsp;&nbsp;&nbsp;+ checkUpdateWithDelegate:selector:</option>
+	
+	<option value="//api/name/endEvent:">&nbsp;&nbsp;&nbsp;&nbsp;+ endEvent:</option>
+	
+	<option value="//api/name/endEvent:label:">&nbsp;&nbsp;&nbsp;&nbsp;+ endEvent:label:</option>
+	
+	<option value="//api/name/endEvent:primarykey:">&nbsp;&nbsp;&nbsp;&nbsp;+ endEvent:primarykey:</option>
+	
+	<option value="//api/name/event:">&nbsp;&nbsp;&nbsp;&nbsp;+ event:</option>
+	
+	<option value="//api/name/event:acc:">&nbsp;&nbsp;&nbsp;&nbsp;+ event:acc:</option>
+	
+	<option value="//api/name/event:attributes:">&nbsp;&nbsp;&nbsp;&nbsp;+ event:attributes:</option>
+	
+	<option value="//api/name/event:attributes:durations:">&nbsp;&nbsp;&nbsp;&nbsp;+ event:attributes:durations:</option>
+	
+	<option value="//api/name/event:durations:">&nbsp;&nbsp;&nbsp;&nbsp;+ event:durations:</option>
+	
+	<option value="//api/name/event:label:">&nbsp;&nbsp;&nbsp;&nbsp;+ event:label:</option>
+	
+	<option value="//api/name/event:label:acc:">&nbsp;&nbsp;&nbsp;&nbsp;+ event:label:acc:</option>
+	
+	<option value="//api/name/event:label:durations:">&nbsp;&nbsp;&nbsp;&nbsp;+ event:label:durations:</option>
+	
+	<option value="//api/name/getAgentVersion">&nbsp;&nbsp;&nbsp;&nbsp;+ getAgentVersion</option>
+	
+	<option value="//api/name/getConfigParams">&nbsp;&nbsp;&nbsp;&nbsp;+ getConfigParams</option>
+	
+	<option value="//api/name/getConfigParams:">&nbsp;&nbsp;&nbsp;&nbsp;+ getConfigParams:</option>
+	
+	<option value="//api/name/isJailbroken">&nbsp;&nbsp;&nbsp;&nbsp;+ isJailbroken</option>
+	
+	<option value="//api/name/isPirated">&nbsp;&nbsp;&nbsp;&nbsp;+ isPirated</option>
+	
+	<option value="//api/name/logPageView:seconds:">&nbsp;&nbsp;&nbsp;&nbsp;+ logPageView:seconds:</option>
+	
+	<option value="//api/name/setAppVersion:">&nbsp;&nbsp;&nbsp;&nbsp;+ setAppVersion:</option>
+	
+	<option value="//api/name/setCrashReportEnabled:">&nbsp;&nbsp;&nbsp;&nbsp;+ setCrashReportEnabled:</option>
+	
+	<option value="//api/name/setDelegate:">&nbsp;&nbsp;&nbsp;&nbsp;+ setDelegate:</option>
+	
+	<option value="//api/name/setLatitude:longitude:">&nbsp;&nbsp;&nbsp;&nbsp;+ setLatitude:longitude:</option>
+	
+	<option value="//api/name/setLocation:">&nbsp;&nbsp;&nbsp;&nbsp;+ setLocation:</option>
+	
+	<option value="//api/name/setLogEnabled:">&nbsp;&nbsp;&nbsp;&nbsp;+ setLogEnabled:</option>
+	
+	<option value="//api/name/setLogSendInterval:">&nbsp;&nbsp;&nbsp;&nbsp;+ setLogSendInterval:</option>
+	
+	<option value="//api/name/startSession:">&nbsp;&nbsp;&nbsp;&nbsp;+ startSession:</option>
+	
+	<option value="//api/name/startWithAppkey:">&nbsp;&nbsp;&nbsp;&nbsp;+ startWithAppkey:</option>
+	
+	<option value="//api/name/updateOnlineConfig">&nbsp;&nbsp;&nbsp;&nbsp;+ updateOnlineConfig</option>
+	
+	
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_设置">设置</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_开启统计">开启统计</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_页面计时">页面计时</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_事件统计">事件统计</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_按渠道自动更新">按渠道自动更新</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_在线参数">在线参数</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_地理位置设置">地理位置设置</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_helper方法">helper方法</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/appLaunched">appLaunched</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/appTerminated">appTerminated</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/beginEvent:">beginEvent:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/beginEvent:label:">beginEvent:label:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/beginEvent:primarykey:attributes:">beginEvent:primarykey:attributes:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/checkUpdate">checkUpdate</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/checkUpdate:cancelButtonTitle:otherButtonTitles:">checkUpdate:cancelButtonTitle:otherButtonTitles:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/checkUpdateWithDelegate:selector:">checkUpdateWithDelegate:selector:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/endEvent:">endEvent:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/endEvent:label:">endEvent:label:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/endEvent:primarykey:">endEvent:primarykey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/event:">event:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/event:acc:">event:acc:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/event:attributes:">event:attributes:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/event:attributes:durations:">event:attributes:durations:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/event:durations:">event:durations:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/event:label:">event:label:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/event:label:acc:">event:label:acc:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/event:label:durations:">event:label:durations:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getAgentVersion">getAgentVersion</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getConfigParams">getConfigParams</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getConfigParams:">getConfigParams:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isJailbroken">isJailbroken</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isPirated">isPirated</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logPageView:seconds:">logPageView:seconds:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setAppVersion:">setAppVersion:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCrashReportEnabled:">setCrashReportEnabled:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDelegate:">setDelegate:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setLatitude:longitude:">setLatitude:longitude:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setLocation:">setLocation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setLogEnabled:">setLogEnabled:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setLogSendInterval:">setLogSendInterval:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startSession:">startSession:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startWithAppkey:">startWithAppkey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateOnlineConfig">updateOnlineConfig</a></span></li>
+	
+</ul></li>
+
+
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="MobClick Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">MobClick Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">UIAlertViewDelegate</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">MobClick.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>MobClick是统计的核心类，本身不需要实例化，所有方法以类方法的形式提供.</p>
+
+<pre><code>目前发送策略有REALTIME,BATCH,SENDDAILY,SENDWIFIONLY,SEND_INTERVAL,SEND_ON_EXIT。
+其中REALTIME,SENDWIFIONLY 只在模拟器和DEBUG模式下生效，真机release模式会自动改成BATCH。
+关于发送策略的调整，请参见关于发送策略及发送策略变更的说明
+http://blog.umeng.com/index.php/2012/12/0601/
+SEND_INTERVAL 为按最小间隔发送,默认为10秒,取值范围为10 到 86400(一天)， 如果不在这个区间的话，会按10设置。
+SEND_ON_EXIT 为退出或进入后台时发送,这种发送策略在App运行过程中不发送，对开发者和用户的影响最小。
+不过这种发送策略只在iOS &gt; 4.0时才会生效, iOS &lt; 4.0 会被自动调整为BATCH。
+</code></pre>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="设置" name="task_设置"></a>
+						<h3 class="subsubtitle task-title">设置</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setAppVersion:">+&nbsp;setAppVersion:</a></code>
+		<span class="tooltip"><p>设置app版本号。由于历史原因需要和xcode3工程兼容,友盟提取的是Build号(CFBundleVersion),如果需要和App Store上的版本一致,需要调用此方法。</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setCrashReportEnabled:">+&nbsp;setCrashReportEnabled:</a></code>
+		<span class="tooltip"><p>开启CrashReport收集, 默认是开启状态.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setLogEnabled:">+&nbsp;setLogEnabled:</a></code>
+		<span class="tooltip"><p>设置是否打印sdk的log信息,默认不开启</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="开启统计" name="task_开启统计"></a>
+						<h3 class="subsubtitle task-title">开启统计</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/startWithAppkey:">+&nbsp;startWithAppkey:</a></code>
+		<span class="tooltip"><p>开启友盟统计,默认以BATCH方式发送log.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setLogSendInterval:">+&nbsp;setLogSendInterval:</a></code>
+		<span class="tooltip"><p>当reportPolicy == SEND_INTERVAL 时设定log发送间隔</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="页面计时" name="task_页面计时"></a>
+						<h3 class="subsubtitle task-title">页面计时</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logPageView:seconds:">+&nbsp;logPageView:seconds:</a></code>
+		<span class="tooltip"><p>页面时长统计,记录某个view被打开多长时间,可以自己计时也可以调用beginLogPageView,endLogPageView自动计时</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="事件统计" name="task_事件统计"></a>
+						<h3 class="subsubtitle task-title">事件统计</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/event:">+&nbsp;event:</a></code>
+		<span class="tooltip"><p>自定义事件,数量统计.</p>
+
+<pre><code>使用前，请先到友盟App管理后台的设置-&gt;编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID
+</code></pre></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/event:label:">+&nbsp;event:label:</a></code>
+		<span class="tooltip"><p>自定义事件,数量统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/event:acc:">+&nbsp;event:acc:</a></code>
+		<span class="tooltip"><p>自定义事件,数量统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/event:label:acc:">+&nbsp;event:label:acc:</a></code>
+		<span class="tooltip"><p>自定义事件,数量统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/event:attributes:">+&nbsp;event:attributes:</a></code>
+		<span class="tooltip"><p>自定义事件,数量统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/beginEvent:">+&nbsp;beginEvent:</a></code>
+		<span class="tooltip"><p>自定义事件,时长统计.</p>
+
+<pre><code>使用前，请先到友盟App管理后台的设置-&gt;编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.
+beginEvent,endEvent要配对使用,也可以自己计时后通过durations参数传递进来
+</code></pre></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/endEvent:">+&nbsp;endEvent:</a></code>
+		<span class="tooltip"><p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/beginEvent:label:">+&nbsp;beginEvent:label:</a></code>
+		<span class="tooltip"><p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/endEvent:label:">+&nbsp;endEvent:label:</a></code>
+		<span class="tooltip"><p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/beginEvent:primarykey:attributes:">+&nbsp;beginEvent:primarykey:attributes:</a></code>
+		<span class="tooltip"><p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/endEvent:primarykey:">+&nbsp;endEvent:primarykey:</a></code>
+		<span class="tooltip"><p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/event:durations:">+&nbsp;event:durations:</a></code>
+		<span class="tooltip"><p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/event:label:durations:">+&nbsp;event:label:durations:</a></code>
+		<span class="tooltip"><p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/event:attributes:durations:">+&nbsp;event:attributes:durations:</a></code>
+		<span class="tooltip"><p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="按渠道自动更新" name="task_按渠道自动更新"></a>
+						<h3 class="subsubtitle task-title">按渠道自动更新</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/checkUpdate">+&nbsp;checkUpdate</a></code>
+		<span class="tooltip"><p>按渠道自动更新检测</p>
+
+<pre><code>检查当前app是否有更新，有更新弹出UIAlertView提示用户,当用户点击升级按钮时app会跳转到您预先设置的网址。
+无更新不做任何操作。
+您需要先在服务器端设置app版本信息，默认渠道是App Store.
+如果您想自己控制自动更新操作流程，请实现MobClickDelegate的appUpdate方法。
+</code></pre></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/checkUpdate:cancelButtonTitle:otherButtonTitles:">+&nbsp;checkUpdate:cancelButtonTitle:otherButtonTitles:</a></code>
+		<span class="tooltip"><p>按渠道自动更新检测</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/checkUpdateWithDelegate:selector:">+&nbsp;checkUpdateWithDelegate:selector:</a></code>
+		<span class="tooltip"><p>按渠道自动更新检测</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="在线参数" name="task_在线参数"></a>
+						<h3 class="subsubtitle task-title">在线参数</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateOnlineConfig">+&nbsp;updateOnlineConfig</a></code>
+		<span class="tooltip"><p>使用在线参数功能，可以让你动态修改应用中的参数值,</p>
+
+<pre><code>检查并更新服务器端配置的在线参数,缓存在[NSUserDefaults standardUserDefaults]里,
+调用此方法您将自动拥有在线更改SDK端发送策略的功能,您需要先在服务器端设置好在线参数.
+请在[MobClick startWithAppkey:]方法之后调用;
+如果想知道在线参数是否完成完成，请监听UMOnlineConfigDidFinishedNotification
+</code></pre>
+
+<p>@param 无.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getConfigParams:">+&nbsp;getConfigParams:</a></code>
+		<span class="tooltip"><p>从[NSUserDefaults standardUserDefaults]获取缓存的在线参数的数值</p>
+
+<pre><code>带参数的方法获取某个key的值，不带参数的获取所有的在线参数.
+需要先调用updateOnlineConfig才能使用,如果想知道在线参数是否完成完成，请监听UMOnlineConfigDidFinishedNotification
+</code></pre></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getConfigParams">+&nbsp;getConfigParams</a></code>
+		<span class="tooltip"><p>从[NSUserDefaults standardUserDefaults]获取缓存的在线参数</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="地理位置设置" name="task_地理位置设置"></a>
+						<h3 class="subsubtitle task-title">地理位置设置</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setLatitude:longitude:">+&nbsp;setLatitude:longitude:</a></code>
+		<span class="tooltip"><p>为了更精确的统计用户地理位置，可以调用此方法传入经纬度信息</p>
+
+<pre><code>需要链接 CoreLocation.framework 并且 #import &lt;CoreLocation/CoreLocation.h&gt;
+</code></pre></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setLocation:">+&nbsp;setLocation:</a></code>
+		<span class="tooltip"><p>为了更精确的统计用户地理位置，可以调用此方法传入经纬度信息</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="helper方法" name="task_helper方法"></a>
+						<h3 class="subsubtitle task-title">helper方法</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/isJailbroken">+&nbsp;isJailbroken</a></code>
+		<span class="tooltip"><p>判断设备是否越狱，判断方法根据 apt和Cydia.app的path来判断</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/isPirated">+&nbsp;isPirated</a></code>
+		<span class="tooltip"><p>判断你的App是否被破解</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setDelegate:">+&nbsp;setDelegate:</a></code>
+		<span class="tooltip"><p>设置MobClick代理,已经startWithAppkey:所取代,不要再使用，原有代码可以删除</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/appLaunched">+&nbsp;appLaunched</a></code>
+		<span class="tooltip"><p>记录启动时间，模块开始启用,不要再使用，原有代码可以删除</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/appTerminated">+&nbsp;appTerminated</a></code>
+		<span class="tooltip"><p>记录软件终止时间，模块终止,不要再使用，原有代码可以删除</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/startSession:">+&nbsp;startSession:</a></code>
+		<span class="tooltip"><p>友盟模块启动
+<a href="#//api/name/startWithAppkey:">[MobClick startWithAppkey:]</a>通常在application:didFinishLaunchingWithOptions:里被调用监听
+App启动和退出事件，如果你没法在application:didFinishLaunchingWithOptions:里添加友盟的<a href="#//api/name/startWithAppkey:">[MobClick startWithAppkey:]</a>
+方法，App的启动事件可能会无法监听，此时你就可以手动调用[MobClick startSession:nil]来启动友盟的session。
+通常发生在某些第三方框架生成的app里，普通app使用不到.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getAgentVersion">+&nbsp;getAgentVersion</a></code>
+		<span class="tooltip"><p>获取友盟sdk 版本号,目前友盟模块启动时自动调用,不要再使用，原有代码可以删除</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/appLaunched" title="appLaunched"></a>
+	<h3 class="subsubtitle method-title">appLaunched</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>记录启动时间，模块开始启用,不要再使用，原有代码可以删除</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)appLaunched</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/appTerminated" title="appTerminated"></a>
+	<h3 class="subsubtitle method-title">appTerminated</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>记录软件终止时间，模块终止,不要再使用，原有代码可以删除</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)appTerminated</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/beginEvent:" title="beginEvent:"></a>
+	<h3 class="subsubtitle method-title">beginEvent:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>自定义事件,时长统计.</p>
+
+<pre><code>使用前，请先到友盟App管理后台的设置-&gt;编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.
+beginEvent,endEvent要配对使用,也可以自己计时后通过durations参数传递进来
+</code></pre>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)beginEvent:(NSString *)<em>eventId</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>eventId</em></dt>
+			<dd><p>网站上注册的事件Id.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>label</em></dt>
+			<dd><p>分类标签。不同的标签会分别进行统计，方便同一事件的不同标签的对比,为nil或空字符串时后台会生成和eventId同名的标签.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>primarykey</em></dt>
+			<dd><p>这个参数用于和event_id一起标示一个唯一事件，并不会被统计；对于同一个事件在beginEvent和endEvent 中要传递相同的eventId 和 primarykey</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>millisecond</em></dt>
+			<dd><p>自己计时需要的话需要传毫秒进来</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Warning:</strong> 每个event的attributes不能超过10个</p>
+
+<pre><code>eventId、attributes中key和value都不能使用空格和特殊字符，且长度不能超过255个字符（否则将截取前255个字符）
+id， ts， du是保留字段，不能作为eventId及key的名称
+</code></pre></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/beginEvent:label:" title="beginEvent:label:"></a>
+	<h3 class="subsubtitle method-title">beginEvent:label:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)beginEvent:(NSString *)<em>eventId</em> label:(NSString *)<em>label</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/beginEvent:primarykey:attributes:" title="beginEvent:primarykey:attributes:"></a>
+	<h3 class="subsubtitle method-title">beginEvent:primarykey:attributes:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)beginEvent:(NSString *)<em>eventId</em> primarykey:(NSString *)<em>keyName</em> attributes:(NSDictionary *)<em>attributes</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/checkUpdate" title="checkUpdate"></a>
+	<h3 class="subsubtitle method-title">checkUpdate</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>按渠道自动更新检测</p>
+
+<pre><code>检查当前app是否有更新，有更新弹出UIAlertView提示用户,当用户点击升级按钮时app会跳转到您预先设置的网址。
+无更新不做任何操作。
+您需要先在服务器端设置app版本信息，默认渠道是App Store.
+如果您想自己控制自动更新操作流程，请实现MobClickDelegate的appUpdate方法。
+</code></pre>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)checkUpdate</code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>title</em></dt>
+			<dd><p>对应UIAlertView的title.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>cancelTitle</em></dt>
+			<dd><p>对应UIAlertView的cancelTitle.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>otherTitle</em></dt>
+			<dd><p>对应UIAlertView的otherTitle.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>delegate</em></dt>
+			<dd><p>需要自定义checkUpdate的对象.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>callBackSelectorWithDictionary</em></dt>
+			<dd><p>当checkUpdate事件完成时此方法会被调用,同时标记app更新信息的字典被传回.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/checkUpdate:cancelButtonTitle:otherButtonTitles:" title="checkUpdate:cancelButtonTitle:otherButtonTitles:"></a>
+	<h3 class="subsubtitle method-title">checkUpdate:cancelButtonTitle:otherButtonTitles:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>按渠道自动更新检测</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)checkUpdate:(NSString *)<em>title</em> cancelButtonTitle:(NSString *)<em>cancelTitle</em> otherButtonTitles:(NSString *)<em>otherTitle</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/checkUpdateWithDelegate:selector:" title="checkUpdateWithDelegate:selector:"></a>
+	<h3 class="subsubtitle method-title">checkUpdateWithDelegate:selector:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>按渠道自动更新检测</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)checkUpdateWithDelegate:(id)<em>delegate</em> selector:(SEL)<em>callBackSelectorWithDictionary</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/endEvent:" title="endEvent:"></a>
+	<h3 class="subsubtitle method-title">endEvent:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)endEvent:(NSString *)<em>eventId</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/endEvent:label:" title="endEvent:label:"></a>
+	<h3 class="subsubtitle method-title">endEvent:label:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)endEvent:(NSString *)<em>eventId</em> label:(NSString *)<em>label</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/endEvent:primarykey:" title="endEvent:primarykey:"></a>
+	<h3 class="subsubtitle method-title">endEvent:primarykey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)endEvent:(NSString *)<em>eventId</em> primarykey:(NSString *)<em>keyName</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/event:" title="event:"></a>
+	<h3 class="subsubtitle method-title">event:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>自定义事件,数量统计.</p>
+
+<pre><code>使用前，请先到友盟App管理后台的设置-&gt;编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID
+</code></pre>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)event:(NSString *)<em>eventId</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>eventId</em></dt>
+			<dd><p>网站上注册的事件Id.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>label</em></dt>
+			<dd><p>分类标签。不同的标签会分别进行统计，方便同一事件的不同标签的对比,为nil或空字符串时后台会生成和eventId同名的标签.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>accumulation</em></dt>
+			<dd><p>累加值。为减少网络交互，可以自行对某一事件ID的某一分类标签进行累加，再传入次数作为参数。</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/event:acc:" title="event:acc:"></a>
+	<h3 class="subsubtitle method-title">event:acc:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>自定义事件,数量统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)event:(NSString *)<em>eventId</em> acc:(NSInteger)<em>accumulation</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/event:attributes:" title="event:attributes:"></a>
+	<h3 class="subsubtitle method-title">event:attributes:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>自定义事件,数量统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)event:(NSString *)<em>eventId</em> attributes:(NSDictionary *)<em>attributes</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/event:attributes:durations:" title="event:attributes:durations:"></a>
+	<h3 class="subsubtitle method-title">event:attributes:durations:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)event:(NSString *)<em>eventId</em> attributes:(NSDictionary *)<em>attributes</em> durations:(int)<em>millisecond</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/event:durations:" title="event:durations:"></a>
+	<h3 class="subsubtitle method-title">event:durations:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)event:(NSString *)<em>eventId</em> durations:(int)<em>millisecond</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/event:label:" title="event:label:"></a>
+	<h3 class="subsubtitle method-title">event:label:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>自定义事件,数量统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)event:(NSString *)<em>eventId</em> label:(NSString *)<em>label</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/event:label:acc:" title="event:label:acc:"></a>
+	<h3 class="subsubtitle method-title">event:label:acc:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>自定义事件,数量统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)event:(NSString *)<em>eventId</em> label:(NSString *)<em>label</em> acc:(NSInteger)<em>accumulation</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/event:label:durations:" title="event:label:durations:"></a>
+	<h3 class="subsubtitle method-title">event:label:durations:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>自定义事件,时长统计.
+使用前，请先到友盟App管理后台的设置->编辑自定义事件 中添加相应的事件ID，然后在工程中传入相应的事件ID.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)event:(NSString *)<em>eventId</em> label:(NSString *)<em>label</em> durations:(int)<em>millisecond</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getAgentVersion" title="getAgentVersion"></a>
+	<h3 class="subsubtitle method-title">getAgentVersion</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>获取友盟sdk 版本号,目前友盟模块启动时自动调用,不要再使用，原有代码可以删除</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)getAgentVersion</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getConfigParams" title="getConfigParams"></a>
+	<h3 class="subsubtitle method-title">getConfigParams</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>从[NSUserDefaults standardUserDefaults]获取缓存的在线参数</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSDictionary *)getConfigParams</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>(NSDictionary *).</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getConfigParams:" title="getConfigParams:"></a>
+	<h3 class="subsubtitle method-title">getConfigParams:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>从[NSUserDefaults standardUserDefaults]获取缓存的在线参数的数值</p>
+
+<pre><code>带参数的方法获取某个key的值，不带参数的获取所有的在线参数.
+需要先调用updateOnlineConfig才能使用,如果想知道在线参数是否完成完成，请监听UMOnlineConfigDidFinishedNotification
+</code></pre>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)getConfigParams:(NSString *)<em>key</em></code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>(NSString *) .</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@param key</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/isJailbroken" title="isJailbroken"></a>
+	<h3 class="subsubtitle method-title">isJailbroken</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>判断设备是否越狱，判断方法根据 apt和Cydia.app的path来判断</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (BOOL)isJailbroken</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/isPirated" title="isPirated"></a>
+	<h3 class="subsubtitle method-title">isPirated</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>判断你的App是否被破解</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (BOOL)isPirated</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logPageView:seconds:" title="logPageView:seconds:"></a>
+	<h3 class="subsubtitle method-title">logPageView:seconds:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>页面时长统计,记录某个view被打开多长时间,可以自己计时也可以调用beginLogPageView,endLogPageView自动计时</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)logPageView:(NSString *)<em>pageName</em> seconds:(int)<em>seconds</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>pageName</em></dt>
+			<dd><p>需要记录时长的view名称.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>seconds</em></dt>
+			<dd><p>秒数，int型.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setAppVersion:" title="setAppVersion:"></a>
+	<h3 class="subsubtitle method-title">setAppVersion:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>设置app版本号。由于历史原因需要和xcode3工程兼容,友盟提取的是Build号(CFBundleVersion),如果需要和App Store上的版本一致,需要调用此方法。</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setAppVersion:(NSString *)<em>appVersion</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>appVersion</em></dt>
+			<dd><p>版本号，例如设置成<code>XcodeAppVersion</code>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setCrashReportEnabled:" title="setCrashReportEnabled:"></a>
+	<h3 class="subsubtitle method-title">setCrashReportEnabled:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>开启CrashReport收集, 默认是开启状态.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setCrashReportEnabled:(BOOL)<em>value</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>value</em></dt>
+			<dd><p>设置成NO,就可以关闭友盟CrashReport收集.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setDelegate:" title="setDelegate:"></a>
+	<h3 class="subsubtitle method-title">setDelegate:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>设置MobClick代理,已经startWithAppkey:所取代,不要再使用，原有代码可以删除</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setDelegate:(id)<em>delegate</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setLatitude:longitude:" title="setLatitude:longitude:"></a>
+	<h3 class="subsubtitle method-title">setLatitude:longitude:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>为了更精确的统计用户地理位置，可以调用此方法传入经纬度信息</p>
+
+<pre><code>需要链接 CoreLocation.framework 并且 #import &lt;CoreLocation/CoreLocation.h&gt;
+</code></pre>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setLatitude:(double)<em>latitude</em> longitude:(double)<em>longitude</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>latitude</em></dt>
+			<dd><p>纬度.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>longitude</em></dt>
+			<dd><p>经度.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>location</em></dt>
+			<dd><p>CLLocation *型的地理信息</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setLocation:" title="setLocation:"></a>
+	<h3 class="subsubtitle method-title">setLocation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>为了更精确的统计用户地理位置，可以调用此方法传入经纬度信息</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setLocation:(CLLocation *)<em>location</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setLogEnabled:" title="setLogEnabled:"></a>
+	<h3 class="subsubtitle method-title">setLogEnabled:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>设置是否打印sdk的log信息,默认不开启</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setLogEnabled:(BOOL)<em>value</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>value</em></dt>
+			<dd><p>设置为YES,umeng SDK 会输出log信息,记得release产品时要设置回NO.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>.
+@exception .</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setLogSendInterval:" title="setLogSendInterval:"></a>
+	<h3 class="subsubtitle method-title">setLogSendInterval:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>当reportPolicy == SEND_INTERVAL 时设定log发送间隔</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setLogSendInterval:(double)<em>second</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>second</em></dt>
+			<dd><p>单位为秒,最小为10,最大为86400(一天).</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/startSession:" title="startSession:"></a>
+	<h3 class="subsubtitle method-title">startSession:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>友盟模块启动
+<a href="#//api/name/startWithAppkey:">[MobClick startWithAppkey:]</a>通常在application:didFinishLaunchingWithOptions:里被调用监听
+App启动和退出事件，如果你没法在application:didFinishLaunchingWithOptions:里添加友盟的<a href="#//api/name/startWithAppkey:">[MobClick startWithAppkey:]</a>
+方法，App的启动事件可能会无法监听，此时你就可以手动调用[MobClick startSession:nil]来启动友盟的session。
+通常发生在某些第三方框架生成的app里，普通app使用不到.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)startSession:(NSNotification *)<em>notification</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/startWithAppkey:" title="startWithAppkey:"></a>
+	<h3 class="subsubtitle method-title">startWithAppkey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>开启友盟统计,默认以BATCH方式发送log.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)startWithAppkey:(NSString *)<em>appKey</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>appKey</em></dt>
+			<dd><p>友盟appKey.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>reportPolicy</em></dt>
+			<dd><p>发送策略.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>channelId</em></dt>
+			<dd><p>渠道名称,为nil或@&ldquo;"时,默认会被被当作@"App Store"渠道</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updateOnlineConfig" title="updateOnlineConfig"></a>
+	<h3 class="subsubtitle method-title">updateOnlineConfig</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>使用在线参数功能，可以让你动态修改应用中的参数值,</p>
+
+<pre><code>检查并更新服务器端配置的在线参数,缓存在[NSUserDefaults standardUserDefaults]里,
+调用此方法您将自动拥有在线更改SDK端发送策略的功能,您需要先在服务器端设置好在线参数.
+请在[MobClick startWithAppkey:]方法之后调用;
+如果想知道在线参数是否完成完成，请监听UMOnlineConfigDidFinishedNotification
+</code></pre>
+
+<p>@param 无.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)updateOnlineConfig</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MobClick.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 umeng.com. All rights reserved. (Last updated: 2012-12-26)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

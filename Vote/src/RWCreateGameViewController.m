@@ -16,6 +16,7 @@
 #import "RWUser.h"
 #import "AFHTTPClient+Singleton.h"
 #import "WXApi+EasyWrap.h"
+#import "SVProgressHUD.h"
 
 static NSInteger const kRedElementTag   = 1001;
 static NSInteger const kBlueElementTag  = 1003;
@@ -48,18 +49,19 @@ static NSInteger const kBlueElementTag  = 1003;
     // controller to control how the table view is displayed.
     self = [super initWithStyle:UITableViewStyleGrouped];
     {
-        self.title = @"游戏设置";
+        self.title = NSLocalizedString(@"createGame",@"创建游戏");
 
         _actions = [[NITableViewActions alloc] initWithTarget:self];
         
         BOOL isAutoDeal = [RWGameSettings defaultSettings].autoDeal;
         
         
-        self.redNumberElement = [NINumberPickerFormElement numberPickerElementWithID:kRedElementTag labelText:@"红方人数" min:0 max:10 defaultValue:[RWGameSettings defaultSettings].redRoleCount didChangeTarget:self didChangeSelector:@selector(numberPickerValueChanged:)];
         
-        self.blueNumberElement = [NINumberPickerFormElement numberPickerElementWithID:kBlueElementTag labelText:@"蓝方人数" min:0 max:10 defaultValue:[RWGameSettings defaultSettings].blueRoleCount didChangeTarget:self didChangeSelector:@selector(numberPickerValueChanged:)];
+        self.redNumberElement = [NINumberPickerFormElement numberPickerElementWithID:kRedElementTag labelText:NSLocalizedString(@"redNumber",@"红方人数") min:3 max:9 defaultValue:[RWGameSettings defaultSettings].redRoleCount didChangeTarget:self didChangeSelector:@selector(numberPickerValueChanged:)];
         
-        self.autoCardElement = [NISwitchFormElement switchElementWithID:0 labelText:@"自动发牌" value:isAutoDeal didChangeTarget:self didChangeSelector:@selector(switchAction:)];
+        self.blueNumberElement = [NINumberPickerFormElement numberPickerElementWithID:kBlueElementTag labelText:NSLocalizedString(@"blueNumber",@"蓝方人数") min:1 max:2 defaultValue:[RWGameSettings defaultSettings].blueRoleCount didChangeTarget:self didChangeSelector:@selector(numberPickerValueChanged:)];
+        
+        self.autoCardElement = [NISwitchFormElement switchElementWithID:0 labelText:NSLocalizedString(@"autoDeal",@"自动发牌") value:isAutoDeal didChangeTarget:self didChangeSelector:@selector(switchAction:)];
 
         NSMutableArray* sectionedObjects =
         [NSMutableArray arrayWithObjects:
@@ -71,17 +73,10 @@ static NSInteger const kBlueElementTag  = 1003;
               return YES;
           }],
          _blueNumberElement,
-//         [self.actions attachToObject:_blueNumberElement
-//                             tapBlock:
-//          ^BOOL(id object, id target) {
-//              
-//              NSLog(@"Object was tapped with an explicit action: %@ target : %@", object,target);
-//              return YES;
-//          }],
          @"",
          _autoCardElement,
          @"",
-         [self.actions attachToObject:[NITitleCellObject objectWithTitle:@"创建游戏"]
+         [self.actions attachToObject:[NITitleCellObject objectWithTitle:NSLocalizedString(@"createGame",@"创建游戏")]
                              tapBlock:
           ^BOOL(id object, id target) {
               
@@ -178,14 +173,15 @@ static NSInteger const kBlueElementTag  = 1003;
     
     NSString *nickname = [RWUser currentUser].nickname;
     if (nickname.length == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请到设置里面设置昵称" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error", @"提示") message:NSLocalizedString(@"pleaseSetYourNickNameInSettings", @"设置昵称")delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         return;
     }
     
     NSString *mood = [RWUser currentUser].mood;
     if (mood.length == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请到设置里面设置个性签名" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        //
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error", @"提示") message:NSLocalizedString(@"pleaseSetYourMoodInSettings", @"设置昵称") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         return;
     }
@@ -197,7 +193,7 @@ static NSInteger const kBlueElementTag  = 1003;
         [params setObject:@"auto" forKey:@"type"];
     } else {
         if (self.redCodeElement.value.length == 0 || self.blueCodeElement.value.length == 0) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"暗号不能为空" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error", @"提示") message:NSLocalizedString(@"codeWordCantBeNull",@"暗号不能为空") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
             return;
         }
@@ -215,6 +211,8 @@ static NSInteger const kBlueElementTag  = 1003;
     
     NSLog(@"%@",params);
     
+    [SVProgressHUD showWithStatus:@"创建中"];
+    
     AFHTTPClient *client = [AFHTTPClient sharedHTTPClient];
     
     NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:kCreateGamePath parameters:params];
@@ -222,17 +220,24 @@ static NSInteger const kBlueElementTag  = 1003;
         
         NSLog(@"Success :%@", JSON);
         BOOL success = [[JSON valueForKeyPath:@"success"] boolValue];
-        if (success) {
-            id object = [JSON valueForKeyPath:@"_object"];
-            
-            [self sentToWeChatClient];
+        if (success) {            
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"createSuccess",@"nil")];
+            [self sentToWeChatClient:JSON];
             
         } else {
-            
+            NSString * resultMsg = [JSON valueForKeyPath:@"resultMsg"];
+
+            [SVProgressHUD showSuccessWithStatus:resultMsg];
         }
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [SVProgressHUD dismiss];
+
         NSLog(@"Failure: %@", error);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"requestError", @"提示") message:NSLocalizedString(@"re",@"暗号不能为空") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+
     }];
     [operation start];
 
@@ -241,20 +246,20 @@ static NSInteger const kBlueElementTag  = 1003;
 }
 
 
-- (void)sentToWeChatClient {
-    [WXApi sendVoteMessage:nil];
+- (void)sentToWeChatClient:(NSDictionary *)json {
+    [WXApi sendVoteNewGameInfo:json];
 }
 
 - (NITextInputFormElement2 *)redCodeElement {
     if (_redCodeElement == nil) {
-        _redCodeElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"红方暗号" placeholderText:@"必需" value:nil delegate:self required:YES];
+        _redCodeElement = [NITextInputFormElement2 textInputElementWithID:0 title:NSLocalizedString(@"redCodeWord",@"红方暗号") placeholderText:NSLocalizedString(@"required",@"必需") value:nil delegate:self required:YES];
     }
     return _redCodeElement;
 }
 
 - (NITextInputFormElement2 *)blueCodeElement {
     if (_blueCodeElement == nil) {
-        _blueCodeElement = [NITextInputFormElement2 textInputElementWithID:0 title:@"蓝方暗号" placeholderText:@"必需" value:nil delegate:self required:YES];
+        _blueCodeElement = [NITextInputFormElement2 textInputElementWithID:0 title:NSLocalizedString(@"blueCodeWord",@"蓝方暗号") placeholderText:NSLocalizedString(@"required",@"必需") value:nil delegate:self required:YES];
     }
     return _blueCodeElement;
 }

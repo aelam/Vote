@@ -11,6 +11,8 @@
 #import <RestKit/RestKit.h>
 #import "RWUser.h"
 #import "AFHTTPClient+Singleton.h"
+#import "RWAPI.h"
+#import "SVProgressHUD.h"
 
 static NSInteger const kNicknameTag = 100;
 static NSInteger const kMoodTag = 101;
@@ -44,7 +46,7 @@ static NSInteger const kMoodTag = 101;
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         
-        self.title = @"游戏设置";
+        self.title = NSLocalizedString(@"settings", @"游戏设置");
         
         NSString *nickname = [RWUser currentUser].nickname;
         NSString *mood = [RWUser currentUser].mood;
@@ -54,19 +56,14 @@ static NSInteger const kMoodTag = 101;
         
         _actions = [[NITableViewActions alloc] initWithTarget:self];
 
-        self.nickElement = [NITextInputFormElement2 textInputElementWithID:kNicknameTag title:@"昵称" placeholderText:@"Required" value:nickname];
-        self.nickElement.delegate = self;
-        self.signElement = [NITextInputFormElement2 textInputElementWithID:kMoodTag title:@"个性签名" placeholderText:@"Optional" value:mood];
-        self.signElement.delegate = self;
-        
+        self.nickElement = [NITextInputFormElement2 textInputElementWithID:kNicknameTag title:NSLocalizedString(@"nickname", @"昵称") placeholderText:NSLocalizedString(@"required", @"Required") value:nickname delegate:self required:YES];
+        self.signElement = [NITextInputFormElement2 textInputElementWithID:kMoodTag title:NSLocalizedString(@"mood", "个性签名") placeholderText:NSLocalizedString(@"optional",@"Optional") value:mood delegate:self required:NO];
 
         NSArray* tableContents = [NSArray arrayWithObjects:
                                   self.nickElement,
                                   self.signElement,
-                                  //                                  redNumberElement,
-                                  //                                  blueNumberElement,
                                   @"",
-                                  [self.actions attachToObject:[NITitleCellObject objectWithTitle:@"更新"]
+                                  [self.actions attachToObject:[NITitleCellObject objectWithTitle:NSLocalizedString(@"update",@"Update")]
                                                       tapBlock:
                                    ^BOOL(id object, id target) {
                                        
@@ -124,7 +121,7 @@ static NSInteger const kMoodTag = 101;
     
     
     if (self.modifyingUser.nickname.length == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"昵称不能为空" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"errror",@"error") message:NSLocalizedString(@"nicknameIsNull",@"nicknameIsNull") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         return;
     }
@@ -134,7 +131,8 @@ static NSInteger const kMoodTag = 101;
         [alert show];
     }
 */
-    
+
+    /*
     NSMutableDictionary *params;
     NSString *userid = [RWUser currentUser].userID;
     params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -183,6 +181,27 @@ static NSInteger const kMoodTag = 101;
     [operation start];
 #endif
         
+     */
+    
+    [SVProgressHUD showWithStatus:@"更新中"];
+    
+    [RWAPI modifyUser:self.modifyingUser result:^(RWUser *modifiedUser, NSError *error) {
+        if (error == NULL) {
+            if ([RWUser currentUser].userID.length == 0) {
+                [RWUser currentUser].userID = modifiedUser.userID;
+                [SVProgressHUD showSuccessWithStatus:@"创建成功"];
+            } else {
+                [SVProgressHUD showSuccessWithStatus:@"修改成功"];                
+            }
+            
+            [RWUser currentUser].nickname = modifiedUser.nickname;
+            [[RWUser currentUser] save];
+            
+        } else {
+            
+            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+        }
+    }];
 }
 
 

@@ -10,6 +10,6 @@
 
 @interface WXApi (EasyWrap)
 
-+ (BOOL)sendVoteMessage:(id)m;
++ (void)sendVoteNewGameInfo:(NSDictionary *)gameInfo;
 
 @end

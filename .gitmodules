@@ -7,3 +7,9 @@
 [submodule "SVProgressHUD"]
 	path = SVProgressHUD
 	url = https://github.com/samvermette/SVProgressHUD.git
+[submodule "uidevice-extension"]
+	path = uidevice-extension
+	url = https://github.com/erica/uidevice-extension
+[submodule "UIDevice-with-UniqueIdentifier-for-iOS-5"]
+	path = UIDevice-with-UniqueIdentifier-for-iOS-5
+	url = https://github.com/gekitz/UIDevice-with-UniqueIdentifier-for-iOS-5.git

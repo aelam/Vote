@@ -24,6 +24,8 @@
 
 "autoDeal"  = "自动发牌";
 
+"game"    = "游戏";
+"gameList" = "游戏列表";
 "createGame" = "创建游戏";
 "recreateGame" = "重新创建游戏";
 

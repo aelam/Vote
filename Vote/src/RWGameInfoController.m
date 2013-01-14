@@ -29,24 +29,48 @@
 
 @synthesize gameID = _gameID;
 @synthesize gameInfo = _gameInfo;
+@synthesize infoType = _infoType;
 
 - (id)initWithGameID:(NSString *)anID {
+    return [self initWithGameID:anID infoType:RWGameInfoTypeJoin];
+    
+}
+
+- (id)initWithGameID:(NSString *)anID infoType:(RWGameInfoType)type {
+
     if (self = [super initWithStyle:UITableViewStyleGrouped]) {
         self.title = NSLocalizedString(@"gameInfo", @"游戏信息");
         
         self.gameID = anID;
+        self.infoType = type;
         
-        [RWAPI joinGameWithID:self.gameID username:[RWUser currentUser].nickname success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-            [self loadModelsFromJson:JSON];
-            if (self.isViewLoaded) {
-                self.tableView.dataSource = self.model;
-                self.tableView.delegate = [self.actions forwardingTo:self];
-                [self.tableView reloadData];
-            }
-            
-        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-            NSLog(@"error :%@",error);
-        }];
+        if (type == RWGameInfoTypeView) {
+            [RWAPI viewGameWithID:self.gameID username:[RWUser currentUser].nickname success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                [self loadModelsFromJson:JSON];
+                if (self.isViewLoaded) {
+                    self.tableView.dataSource = self.model;
+                    self.tableView.delegate = [self.actions forwardingTo:self];
+                    [self.tableView reloadData];
+                }
+                
+            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                NSLog(@"error :%@",error);
+            }];
+
+        } else {
+            [RWAPI joinGameWithID:self.gameID username:[RWUser currentUser].nickname success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                [self loadModelsFromJson:JSON];
+                if (self.isViewLoaded) {
+                    self.tableView.dataSource = self.model;
+                    self.tableView.delegate = [self.actions forwardingTo:self];
+                    [self.tableView reloadData];
+                }
+                
+            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                NSLog(@"error :%@",error);
+            }];
+        }
+        
 
         
     }
@@ -99,6 +123,11 @@
         
         NISubtitleCellObject *operatorCellObject = [NISubtitleCellObject objectWithTitle:NSLocalizedString(@"owner",@"创建人") subtitle:operator];
         operatorCellObject.cellStyle = UITableViewCellStyleValue1;
+        
+        NSDictionary *gameInfoObj = [json valueForKeyPath:@"_object.gameInfoObj"];
+        
+        NSArray *badItems = [gameInfoObj valueForKey:@"badItems"];
+        NSArray *goodItems = [gameInfoObj valueForKeyPath:@"goodItems"];
 
         cellObjects = [NSMutableArray arrayWithObjects:
                        gameIDCellObject,
@@ -108,13 +137,31 @@
                        @"",
                        goodWordCellObject,
                        badWordCellObject,
-                       @"",                       
-                       [self.actions attachToObject:[NITitleCellObject objectWithTitle:NSLocalizedString(@"recreateGame",@"重新创建游戏")] tapBlock:^BOOL(id object, id target) {
+                       
+/*                       [self.actions attachToObject:[NITitleCellObject objectWithTitle:NSLocalizedString(@"recreateGame",@"重新创建游戏")] tapBlock:^BOOL(id object, id target) {
             
             [self backAction:nil];
             return YES;
         }],
-                       nil];
+  */                     nil];
+        
+        [cellObjects addObject:@"红方人员"];
+        if ([goodItems count] == 0) {
+            [cellObjects addObject:[NITitleCellObject objectWithTitle:@"红方人员还未加入"]];
+        } else {
+            for(NSString *title in goodItems) {
+                [cellObjects addObject:[NITitleCellObject objectWithTitle:title]];
+            }
+        }
+
+        [cellObjects addObject:@"蓝方人员"];
+        if ([badItems count] == 0) {
+            [cellObjects addObject:[NITitleCellObject objectWithTitle:@"蓝方人员还未加入"]];
+        } else {
+            for(NSString *title in badItems) {
+                [cellObjects addObject:[NITitleCellObject objectWithTitle:title]];
+            }
+        }
         
         self.model = [[NITableViewModel alloc] initWithSectionedArray:cellObjects delegate:(id)[NICellFactory class]];
 
@@ -125,8 +172,8 @@
         voteWordCellObject.cellStyle = UITableViewCellStyleValue1;
         
 
-        NSString *name = SAFE_STRING([json valueForKeyPath:@"_object.name"]);
-        NISubtitleCellObject *nameCellObject = [NISubtitleCellObject objectWithTitle:NSLocalizedString(@"myCodeWord",@"我的人物代号") subtitle:name];
+        NSString *name = [RWUser currentUser].nickname;//SAFE_STRING([json valueForKeyPath:@"_object.name"]);
+        NISubtitleCellObject *nameCellObject = [NISubtitleCellObject objectWithTitle:NSLocalizedString(@"nickname",@"我的人物代号") subtitle:name];
         nameCellObject.cellStyle = UITableViewCellStyleValue1;
 
 
@@ -142,11 +189,11 @@
                        @"",
                        nameCellObject,
                        @"",
-                       [self.actions attachToObject:[NITitleCellObject objectWithTitle:NSLocalizedString(@"recreateGame",@"重新创建游戏")] tapBlock:^BOOL(id object, id target) {
-            
-            [self backAction:nil];
-            return YES;
-        }],
+//                       [self.actions attachToObject:[NITitleCellObject objectWithTitle:NSLocalizedString(@"recreateGame",@"重新创建游戏")] tapBlock:^BOOL(id object, id target) {
+//            
+//            [self backAction:nil];
+//            return YES;
+//        }],
                        nil];
 
         self.model = [[NITableViewModel alloc] initWithSectionedArray:cellObjects delegate:(id)[NICellFactory class]];
@@ -167,13 +214,19 @@
     tap.cancelsTouchesInView = NO;
     [self.tableView addGestureRecognizer:tap];
     
+    if (self.infoType == RWGameInfoTypeJoin) {
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"back",@"返回") style:UIBarButtonItemStyleDone target:self action:@selector(backAction:)];
+        self.navigationItem.leftBarButtonItem = backItem;
+    }
     
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"back",@"返回") style:UIBarButtonItemStyleDone target:self action:@selector(backAction:)];
-    self.navigationItem.leftBarButtonItem = backItem;
 }
 
 - (void)backAction:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    if (self.infoType == RWGameInfoTypeJoin) {
+        [self dismissModalViewControllerAnimated:YES];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)didTapTableView {

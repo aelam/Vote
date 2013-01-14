@@ -62,6 +62,9 @@
  */
 @property (nonatomic, readwrite, copy) NSString *title;
 
+
+@property (nonatomic,retain) UIImage *image;
+
 /**
  * @property required used to identify any field that is required.  Processing
  *	the data after submission to verify that data has been entered is left
@@ -88,6 +91,8 @@
 @private
 	CGFloat			_maxLabelLength;
 }
+
+@property (nonatomic,retain) UIImageView *leftImageView;
 
 + (UITableViewCellStyle) cellStyle;
 @end
@@ -117,7 +122,9 @@
 @property (nonatomic,assign) NSInteger minValue;
 @property (nonatomic,assign) NSInteger maxValue;
 @property (nonatomic,assign) NSInteger defaultValue;
-@property (nonatomic,assign) NSInteger selectedValue;
+@property (nonatomic,retain) UIImage *image;
+
+@property (nonatomic,assign) NSInteger value;
 
 @property (nonatomic, NI_WEAK) id didChangeTarget;
 @property (nonatomic, assign) SEL didChangeSelector;

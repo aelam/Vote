@@ -12,6 +12,7 @@
 static NSString *kUserIDKey     = @"kUserIDKey";
 static NSString *kNicknameKey   = @"kNicknameKey";
 static NSString *kMoodKey       = @"kMoodKey";
+static NSString *kLastGameIdKey     = @"kLastGameIdKey";
 
 @interface RWUser ()
 
@@ -28,6 +29,7 @@ static NSString *kMoodKey       = @"kMoodKey";
 @synthesize mood = _mood;
 @synthesize nickname = _nickname;
 @synthesize userID = _userID;
+@synthesize lastGameId = _lastGameId;
 
 + (RWUser *)currentUser {
     static RWUser *currentUser = nil;
@@ -60,6 +62,7 @@ static NSString *kMoodKey       = @"kMoodKey";
     self.mood = [[NSUserDefaults standardUserDefaults] stringForKey:kMoodKey];
     self.userID = [[NSUserDefaults standardUserDefaults] stringForKey:kUserIDKey];
     self.nickname = [[NSUserDefaults standardUserDefaults] stringForKey:kNicknameKey];    
+    self.lastGameId = [[NSUserDefaults standardUserDefaults] stringForKey:kLastGameIdKey];
 }
 
 
@@ -67,6 +70,8 @@ static NSString *kMoodKey       = @"kMoodKey";
     [[NSUserDefaults standardUserDefaults]setObject:self.mood forKey:kMoodKey];
     [[NSUserDefaults standardUserDefaults]setObject:self.userID forKey:kUserIDKey];
     [[NSUserDefaults standardUserDefaults]setObject:self.nickname forKey:kNicknameKey];
+    [[NSUserDefaults standardUserDefaults]setObject:self.lastGameId forKey:kLastGameIdKey];
+
     [[NSUserDefaults standardUserDefaults]synchronize];
 }
 

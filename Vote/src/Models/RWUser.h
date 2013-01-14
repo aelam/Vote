@@ -16,6 +16,8 @@
 @property (nonatomic, retain) NSString * nickname;
 @property (nonatomic, retain) NSString * userID;
 
+@property (nonatomic,copy) NSString *lastGameId;
+
 + (RWUser *)currentUser;
 
 - (void)save;

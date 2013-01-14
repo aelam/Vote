@@ -12,6 +12,8 @@
 
 "autoDeal"  = "Auto Deal";
 
+"game"    = "Game";
+"gameList"    = "Game List";
 "createGame" = "Create new game";
 "recreateGame" = "Create new game";
 

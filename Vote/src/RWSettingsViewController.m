@@ -23,8 +23,8 @@ static NSInteger const kMoodTag = 101;
 @property (nonatomic, readwrite, retain) NITableViewModel* model;
 @property (nonatomic, readwrite, retain) NITableViewActions* actions;
 
-@property (nonatomic, readwrite, retain) NITextInputFormElement2* nickElement;
-@property (nonatomic, readwrite, retain) NITextInputFormElement2* signElement;
+//@property (nonatomic, readwrite, retain) NITextInputFormElement2* nickElement;
+//@property (nonatomic, readwrite, retain) NITextInputFormElement2* signElement;
 
 
 @end
@@ -34,8 +34,8 @@ static NSInteger const kMoodTag = 101;
 @synthesize model = _model;
 @synthesize actions = _actions;
 @synthesize modifyingUser = _modifyingUser;
-@synthesize nickElement = _nickElement;
-@synthesize signElement = _signElement;
+//@synthesize nickElement = _nickElement;
+//@synthesize signElement = _signElement;
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 //{
@@ -48,6 +48,9 @@ static NSInteger const kMoodTag = 101;
         
         self.title = NSLocalizedString(@"settings", @"游戏设置");
         
+        self.tabBarItem.image = [UIImage imageNamed:@"cog_01"];
+        self.tabBarItem.title = NSLocalizedString(@"settings", @"游戏设置");
+
         NSString *nickname = [RWUser currentUser].nickname;
         NSString *mood = [RWUser currentUser].mood;
         
@@ -56,12 +59,14 @@ static NSInteger const kMoodTag = 101;
         
         _actions = [[NITableViewActions alloc] initWithTarget:self];
 
-        self.nickElement = [NITextInputFormElement2 textInputElementWithID:kNicknameTag title:NSLocalizedString(@"nickname", @"昵称") placeholderText:NSLocalizedString(@"required", @"Required") value:nickname delegate:self required:YES];
-        self.signElement = [NITextInputFormElement2 textInputElementWithID:kMoodTag title:NSLocalizedString(@"mood", "个性签名") placeholderText:NSLocalizedString(@"optional",@"Optional") value:mood delegate:self required:NO];
+         NITextInputFormElement2 *nickElement = [NITextInputFormElement2 textInputElementWithID:kNicknameTag title:NSLocalizedString(@"nickname", @"昵称") placeholderText:NSLocalizedString(@"required", @"Required") value:nickname delegate:self required:YES];
+        nickElement.image = [UIImage imageNamed:@"nickname_setting"];
+         NITextInputFormElement2 *signElement = [NITextInputFormElement2 textInputElementWithID:kMoodTag title:NSLocalizedString(@"mood", "个性签名") placeholderText:NSLocalizedString(@"optional",@"Optional") value:mood delegate:self required:NO];
+        signElement.image = [UIImage imageNamed:@"setMemo"];
 
         NSArray* tableContents = [NSArray arrayWithObjects:
-                                  self.nickElement,
-                                  self.signElement,
+                                  nickElement,
+                                  signElement,
                                   @"",
                                   [self.actions attachToObject:[NITitleCellObject objectWithTitle:NSLocalizedString(@"update",@"Update")]
                                                       tapBlock:
@@ -90,11 +95,7 @@ static NSInteger const kMoodTag = 101;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Once the tableView has loaded we attach the model to the data source. As mentioned above,
-    // NITableViewModel implements UITableViewDataSource so that you don't have to implement any
-    // of the data source methods directly in your controller.
-    
+        
     self.tableView.dataSource = self.model;
     self.tableView.delegate = [self.actions forwardingTo:self];
 
@@ -102,18 +103,34 @@ static NSInteger const kMoodTag = 101;
     tap.cancelsTouchesInView = NO;
     [self.tableView addGestureRecognizer:tap];
 
-//    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(submitChanges:)];
-//    self.navigationItem.rightBarButtonItem = doneItem;
-    
 }
 
 
 - (void)reloadData {
-    self.nickElement.title = [RWUser currentUser].nickname;
-    self.signElement.title = [RWUser currentUser].mood;
-    
+//    self.nickElement.title = [RWUser currentUser].nickname;
+//    self.signElement.title = [RWUser currentUser].mood;
     [self.tableView reloadData];
 }
+
+
+- (UITableViewCell *)tableViewModel: (NITableViewModel *)tableViewModel
+                   cellForTableView: (UITableView *)tableView
+                        atIndexPath: (NSIndexPath *)indexPath
+                         withObject: (id)object {
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"row"];
+    
+    if (nil == cell) {
+        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                       reuseIdentifier: @"row"];
+    }
+    
+    [NICellFactory tableViewModel:tableViewModel cellForTableView:tableView atIndexPath:indexPath withObject:object];
+    //    cell.textLabel.text = [object objectForKey:@"title"];
+    
+    return cell;
+}
+
+
 
 - (void)submitChanges:(id)sender {
     
@@ -125,63 +142,7 @@ static NSInteger const kMoodTag = 101;
         [alert show];
         return;
     }
-/*
-    if (self.modifyingUser.mood.length == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"个性签名不能为空" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-    }
-*/
 
-    /*
-    NSMutableDictionary *params;
-    NSString *userid = [RWUser currentUser].userID;
-    params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-              kAccessToken,@"ak",
-              self.modifyingUser.nickname,@"username",
-              nil];
-    
-    if (userid.length) {
-        [params setObject:userid forKey:@"id"];
-    }
-    
-    AFHTTPClient *client = [AFHTTPClient sharedHTTPClient];
-#if 0
-
-    [client postPath:kModifyUserPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
-        NSString *string = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",string);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error);
-    }];
-    
-#else
-    NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:kModifyUserPath parameters:params];
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        
-        NSLog(@"Success :%@", JSON);
-        BOOL success = [[JSON valueForKeyPath:@"success"] boolValue];
-        if (success) {
-            id object = [JSON valueForKeyPath:@"_object"];
-            [RWUser currentUser].userID = [NSString stringWithFormat:@"%@",[object valueForKeyPath:@"id"]];
-            [RWUser currentUser].nickname = [object valueForKeyPath:@"username"];
-            [[RWUser currentUser] save];
-            
-            [self.tableView reloadData];
-            
-            self.modifyingUser = nil;
-            
-        } else {
-            
-        }
-    
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                                                            NSLog(@"Failure: %@", error);
-                                                                                        }];
-    [operation start];
-#endif
-        
-     */
     
     [SVProgressHUD showWithStatus:@"更新中"];
     
@@ -195,6 +156,9 @@ static NSInteger const kMoodTag = 101;
             }
             
             [RWUser currentUser].nickname = modifiedUser.nickname;
+            NITextInputFormElement2 *nickElement = (NITextInputFormElement2 *)[self.model elementWithID:kNicknameTag];
+            nickElement.value = modifiedUser.nickname;
+            
             [[RWUser currentUser] save];
             
         } else {
@@ -203,7 +167,6 @@ static NSInteger const kMoodTag = 101;
         }
     }];
 }
-
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     if(self.modifyingUser == nil) {

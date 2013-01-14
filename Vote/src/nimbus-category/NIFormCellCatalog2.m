@@ -25,7 +25,7 @@
 
 @synthesize title			= _title;
 @synthesize required		= _required;
-
+@synthesize image           = _image;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -157,6 +157,7 @@
 	
 	if (self) {
 		_maxLabelLength = (NIIsPad() ? 100.0f : 55.0f);
+        
 	}
 	
 	return self;
@@ -172,7 +173,7 @@
 	
 	if (shouldUpdate) {
 		NITextInputFormElement2* textInputElement = (NITextInputFormElement2 *)self.element;
-		
+        
 		UILabel *label = [[UILabel alloc] init];
 		label.backgroundColor = [UIColor clearColor];
         label.font = [UIFont boldSystemFontOfSize:17];
@@ -192,10 +193,35 @@
 		self.textField.textAlignment = NSTextAlignmentRight;
 		self.textField.tag = self.tag;
 		
+        if (textInputElement.image) {
+            if (_leftImageView == nil) {
+                _leftImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+                [self.contentView addSubview:_leftImageView];
+            }
+            _leftImageView.image = textInputElement.image;
+        }
+        
 		[self setNeedsLayout];
+
 	}
 	
 	return shouldUpdate;
+}
+
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+
+    NITextInputFormElement2* textInputElement = (NITextInputFormElement2 *)self.element;
+
+//    [_leftImageView sizeToFit];
+    if (textInputElement.image) {
+        _leftImageView.frame = CGRectMake(10, 12, 20, 20);
+        CGRect rect = UIEdgeInsetsInsetRect(self.contentView.bounds, NICellContentPadding());
+        self.textField.frame = CGRectMake(rect.origin.x + 26, rect.origin.y, rect.size.width - 30, rect.size.height);
+    }
+    
+    
 }
 
 
@@ -211,10 +237,11 @@
 @synthesize labelText = _labelText;
 @synthesize minValue = _minValue;
 @synthesize maxValue = _maxValue;
-@synthesize selectedValue = _selectedValue;
 @synthesize defaultValue = _defaultValue;
 @synthesize didChangeTarget = _didChangeTarget;
 @synthesize didChangeSelector = _didChangeSelector;
+@synthesize image = _image;
+@synthesize value = _value;
 
 + (id)numberPickerElementWithID:(NSInteger)elementID labelText:(NSString *)labelText min:(NSInteger)min max:(NSInteger)max defaultValue:(NSInteger)default0 didChangeTarget:(id)target didChangeSelector:(SEL)selector {
     NINumberPickerFormElement *element = [super elementWithID:elementID];
@@ -224,7 +251,9 @@
     element.defaultValue = default0;
     element.didChangeTarget = target;
     element.didChangeSelector = selector;    
-    element.selectedValue = default0;
+    element.value = default0;
+    element.didChangeTarget = target;
+    element.didChangeSelector = selector;
     
     return element;
 }
@@ -343,7 +372,7 @@
         self.textLabel.text = datePickerElement.labelText;
         
         NINumberPickerFormElement *elemet = (NINumberPickerFormElement *)self.element;
-        NSString *value = [NSString stringWithFormat:@"%d",elemet.defaultValue];
+        NSString *value = [NSString stringWithFormat:@"%d",elemet.value];
         self.numberField.text = value;
                 
         self.dumbDateField.text = self.numberField.text;
@@ -351,6 +380,7 @@
         _numberField.tag = self.tag;
         _numberPicker.tag = self.tag;
         
+        self.imageView.image = elemet.image;
         [self setNeedsLayout];
         return YES;
     }
@@ -391,8 +421,8 @@
     
     self.dumbDateField.text = self.numberField.text;
     
-    datePickerElement.selectedValue = selectedValue;
-    
+    datePickerElement.value = selectedValue;
+
     if (nil != datePickerElement.didChangeSelector && nil != datePickerElement.didChangeTarget
         && [datePickerElement.didChangeTarget respondsToSelector:datePickerElement.didChangeSelector]) {
         // [datePickerElement.didChangeTarget performSelector:datePickerElement.didChangeSelector withObject:self.datePicker];
@@ -427,6 +457,16 @@
     
     textField.hidden = YES;
     self.dumbDateField.hidden = NO;
+    
+    NSInteger value = [self.dumbDateField.text integerValue];
+    
+    NINumberPickerFormElement *elemet = (NINumberPickerFormElement *)self.element;
+    NSInteger row = value - elemet.minValue;
+    
+
+    [self.numberPicker selectRow:row inComponent:0 animated:NO];
+    
+    
     return YES;
 }
 

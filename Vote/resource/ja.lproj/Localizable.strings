@@ -1,7 +1,58 @@
-/* 
-  Localizable.strings
-  Vote
+/*
+ Localizable.strings
+ Vote
+ 
+ Created by Ryan Wang on 13-1-8.
+ Copyright (c) 2013年 Ryan Wang. All rights reserved.
+ */
 
-  Created by Ryan Wang on 13-1-8.
-  Copyright (c) 2013年 Ryan Wang. All rights reserved.
-*/
+
+"redNumber" = "红方人数";
+"blueNumber" = "蓝色方人数";
+
+"autoDeal"  = "自动发牌";
+
+"create"    = "创建";
+"createGame" = "创建新游戏";
+"recreateGame" = "重新创建游戏";
+
+"redCodeWord" = "红方暗号";
+"blueCodeWord" = "蓝方暗号";
+
+
+"required"  = "必需";
+"optional"  = "可选";
+
+"vote"      = "我是卧底";
+
+"create"    = "创建";
+"settings"  = "设置";
+"mood"      = "个性签名";
+"nickname"  = "昵称";
+"update"    = "更新";
+
+
+"gameId"    = "游戏ID";
+"myCodeWord"= "我的暗号";
+
+"owner"     = "创建者/裁判";
+
+
+"createSuccess" = "游戏创建成功";
+"sendSuccess" = "发送成功";
+"sendFail" = "发送失败";
+"back" = "返回";
+"gameInfo" = "游戏信息";
+
+"backToWeChat" = "返回微信";
+"backToWeChatGetCode" = "返回微信,获取暗号";
+
+"error" = "错误";
+"pleaseSetYourNickNameInSettings" = "请在设置里面设置昵称";
+"pleaseSetYourMoodInSettings" = "请在设置里面设置个性签名";
+
+"codeWordCantBeNull" = "非自动发牌模式下暗号不能为空";
+
+
+"confirm" = "确定";
+

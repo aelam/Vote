@@ -8,6 +8,7 @@
 
 #import "RWAPI.h"
 #import "AFHTTPClient+Singleton.h"
+#import "UIDevice-Hardware.h"
 
 static NSString *const kRWAPIDomain = @"RWAPI Domain";
 
@@ -21,6 +22,7 @@ static NSString *const kRWAPIDomain = @"RWAPI Domain";
     
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
     [params setObject:kAccessToken forKey:@"ak"];
+    
     [params setObject:id_ forKey:@"id"];
     [params setObject:name forKey:@"username"];
     NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:kJoinGamePath parameters:params];
@@ -48,6 +50,8 @@ static NSString *const kRWAPIDomain = @"RWAPI Domain";
     if (userid.length) {
         [params setObject:userid forKey:@"id"];
     }
+
+    [params setObject:[UIDevice currentDevice].macaddress forKey:@"IMEI"];
 
     
     NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:kModifyUserPath parameters:params];
@@ -83,6 +87,29 @@ static NSString *const kRWAPIDomain = @"RWAPI Domain";
     
 }
 
+
++ (void)viewGameWithID:(NSString *)id_ username:(NSString *)name
+               success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success
+               failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure {
+    
+    AFHTTPClient *client = [AFHTTPClient sharedHTTPClient];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
+    [params setObject:kAccessToken forKey:@"ak"];
+    
+    [params setObject:id_ forKey:@"id"];
+    [params setObject:name forKey:@"operator"];
+    NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:kViewGameInfoPath parameters:params];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        success(request,response,JSON);
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"Failure: %@", error);
+        failure(request,response,error,JSON);
+    }];
+    [operation start];
+
+}
 
 
 @end

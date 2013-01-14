@@ -11,9 +11,10 @@
 #import "RWSettingsViewController.h"
 #import "RWCreateGameViewController.h"
 #import "RWGameInfoController.h"
+#import "RWGameListController.h"
 
-static NSInteger kMainIndex = 0;
-static NSInteger kSettingsIndex = 1;
+//static NSInteger kMainIndex = 0;
+//static NSInteger kSettingsIndex = 1;
 
 @interface RWRootViewController ()
 
@@ -34,29 +35,35 @@ static NSInteger kSettingsIndex = 1;
     RWCreateGameViewController *mainViewController = [[RWCreateGameViewController alloc] init];
     UINavigationController *mainNavigator = [[UINavigationController alloc] initWithRootViewController:mainViewController];
 
+    RWGameListController *listController = [[RWGameListController alloc] init];
+    UINavigationController *listNavigator = [[UINavigationController alloc] initWithRootViewController:listController];
+    
     
     RWSettingsViewController *settingsViewController = [[RWSettingsViewController alloc] init];
     UINavigationController *settingsNavigator = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
     
-    self.viewControllers = [NSArray arrayWithObjects:mainNavigator,settingsNavigator,nil];
+    self.viewControllers = [NSArray arrayWithObjects:mainNavigator,listNavigator,settingsNavigator,nil];
 
-    UITabBarItem *mainTabItem = [self.tabBar.items objectAtIndex:kMainIndex];
-    [mainTabItem setTitle:NSLocalizedString(@"vote", nil)];
-
-    UITabBarItem *settingsTabItem = [self.tabBar.items objectAtIndex:kSettingsIndex];
-    [settingsTabItem setTitle:NSLocalizedString(@"Settings", nil)];
+//    UITabBarItem *mainTabItem = [self.tabBar.items objectAtIndex:kMainIndex];
+////    [mainTabItem setTitle:NSLocalizedString(@"vote", nil)];
+//    [mainTabItem setTitle:nil];
+//    [mainTabItem setImage:[UIImage imageNamed:@"help_40"]];
+//    UITabBarItem *settingsTabItem = [self.tabBar.items objectAtIndex:kSettingsIndex];
+////    [settingsTabItem setTitle:NSLocalizedString(@"settings", nil)];
+//    [settingsTabItem setTitle:nil];
+//    [settingsTabItem setImage:[UIImage imageNamed:@"tab_settings_pressed"]];
     
 }
 
 - (void)joinGameWithGameId:(NSString *)gameId {
     NSLog(@"%@",self.presentingViewController);
-    if (self.gameInfoNavigator.presentingViewController) {
+//    if ([self.gameInfoNavigator isBeingPresented]) {
         [self.gameInfoNavigator dismissModalViewControllerAnimated:NO];
-    } else {
-        
+//    } else {
+    
         self.gameInfoController = [[RWGameInfoController alloc] initWithGameID:gameId];
         self.gameInfoNavigator = [[UINavigationController alloc] initWithRootViewController:self.gameInfoController];
-    }
+//    }
     
     [self presentViewController:self.gameInfoNavigator animated:YES completion:NULL];
     

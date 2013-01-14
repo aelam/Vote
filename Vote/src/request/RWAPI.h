@@ -19,4 +19,10 @@
 
 + (void)modifyUser:(RWUser *)modifyingUser result:(void (^)(RWUser *modifiedUser,NSError *error))result;
 
++ (void)viewGameWithID:(NSString *)id_ username:(NSString *)name
+               success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success
+               failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure;
+
+
+
 @end

@@ -12,7 +12,6 @@ static NSString *kRedRoleCountKey   = @"kRedRoleCountKey";
 static NSString *kBlueRoleCountKey  = @"kBlueRoleCountKey";
 static NSString *kAutoDealKey       = @"kAutoDealKey";
 
-
 @implementation RWGameSettings
 
 @synthesize redRoleCount = _redRoleCount;
@@ -67,6 +66,8 @@ static NSString *kAutoDealKey       = @"kAutoDealKey";
     [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithInt:self.redRoleCount] forKey:kRedRoleCountKey];
     [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithInt:self.blueRoleCount] forKey:kBlueRoleCountKey];
     [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithBool:self.autoDeal] forKey:kAutoDealKey];
+
+
     [[NSUserDefaults standardUserDefaults]synchronize];
     
     NSLog(@"%@",self);

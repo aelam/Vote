@@ -38,6 +38,14 @@
 
 "owner"     = "创建者/裁判";
 
+"gameStatus" = "游戏状态";
+"gameStatusAbsent" = "少人";
+"gameStatusNormal" = "到齐";
+
+"refreshing" = "刷新中...";
+"refreshSuccess" = "刷新成功";
+"refreshFail" = "刷新失败";
+
 
 "createSuccess" = "游戏创建成功";
 "sendSuccess" = "发送成功";

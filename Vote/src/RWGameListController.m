@@ -37,7 +37,7 @@
 
         self.title = NSLocalizedString(@"gameList", @"gameList");
         
-        self.tabBarItem.image = [UIImage imageNamed:@"cog_01"];
+        self.tabBarItem.image = [UIImage imageNamed:@"document"];
         self.tabBarItem.title = NSLocalizedString(@"gameList", @"gameList");
         
         

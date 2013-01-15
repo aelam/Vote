@@ -13,6 +13,7 @@
 #import "NIFormCellCatalog2.h"
 #import "RWAPI.h"
 #import "RWUser.h"
+#import "SVProgressHUD.h"
 
 @interface RWGameInfoController () <NIMutableTableViewModelDelegate>
 
@@ -44,34 +45,8 @@
         self.gameID = anID;
         self.infoType = type;
         
-        if (type == RWGameInfoTypeView) {
-            [RWAPI viewGameWithID:self.gameID username:[RWUser currentUser].nickname success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                [self loadModelsFromJson:JSON];
-                if (self.isViewLoaded) {
-                    self.tableView.dataSource = self.model;
-                    self.tableView.delegate = [self.actions forwardingTo:self];
-                    [self.tableView reloadData];
-                }
-                
-            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                NSLog(@"error :%@",error);
-            }];
-
-        } else {
-            [RWAPI joinGameWithID:self.gameID username:[RWUser currentUser].nickname success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                [self loadModelsFromJson:JSON];
-                if (self.isViewLoaded) {
-                    self.tableView.dataSource = self.model;
-                    self.tableView.delegate = [self.actions forwardingTo:self];
-                    [self.tableView reloadData];
-                }
-                
-            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                NSLog(@"error :%@",error);
-            }];
-        }
         
-
+        [self refresh:nil];
         
     }
     return self;
@@ -128,12 +103,23 @@
         
         NSArray *badItems = [gameInfoObj valueForKey:@"badItems"];
         NSArray *goodItems = [gameInfoObj valueForKeyPath:@"goodItems"];
-
+        
+        NSString *status = nil;
+        if (goodCount.integerValue + badCount.integerValue > [badItems count] + [goodItems count]) {
+            status = NSLocalizedString(@"gameStatusAbsent",@"gameStatus");
+        } else {
+            status = NSLocalizedString(@"gameStatusNormal",@"gameStatus");
+        }
+        
+        NISubtitleCellObject *statusCellObject = [NISubtitleCellObject objectWithTitle:NSLocalizedString(@"gameStatus",@"gameStatus") subtitle:status];
+        statusCellObject.cellStyle = UITableViewCellStyleValue1;
+        
         cellObjects = [NSMutableArray arrayWithObjects:
                        gameIDCellObject,
                        redCountCellObject,
                        blueCountCellObject,
                        operatorCellObject,
+                       statusCellObject,
                        @"",
                        goodWordCellObject,
                        badWordCellObject,
@@ -144,6 +130,7 @@
             return YES;
         }],
   */                     nil];
+        
         
         [cellObjects addObject:@"红方人员"];
         if ([goodItems count] == 0) {
@@ -219,6 +206,9 @@
         self.navigationItem.leftBarButtonItem = backItem;
     }
     
+    UIBarButtonItem *refreshItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh:)];
+    self.navigationItem.rightBarButtonItem = refreshItem;
+
 }
 
 - (void)backAction:(id)sender {
@@ -226,6 +216,42 @@
         [self dismissModalViewControllerAnimated:YES];
     } else {
         [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+- (void)refresh:(id)sender {
+    
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"refreshing", @"refreshing")];
+    
+    if (self.infoType == RWGameInfoTypeView) {
+        [RWAPI viewGameWithID:self.gameID username:[RWUser currentUser].nickname success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            [self loadModelsFromJson:JSON];
+            if (self.isViewLoaded) {
+                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"refreshSuccess", @"refreshSuccess")];
+                self.tableView.dataSource = self.model;
+                self.tableView.delegate = [self.actions forwardingTo:self];
+                [self.tableView reloadData];
+            }
+            
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            NSLog(@"error :%@",error);
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"refreshFail", @"refreshFail")];
+        }];
+        
+    } else {
+        [RWAPI joinGameWithID:self.gameID username:[RWUser currentUser].nickname success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            [self loadModelsFromJson:JSON];
+            if (self.isViewLoaded) {
+                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"refreshSuccess", @"refreshSuccess")];
+                self.tableView.dataSource = self.model;
+                self.tableView.delegate = [self.actions forwardingTo:self];
+                [self.tableView reloadData];
+            }
+            
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            NSLog(@"error :%@",error);
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"refreshFail", @"refreshFail")];
+        }];
     }
 }
 

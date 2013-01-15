@@ -27,7 +27,7 @@
 "vote"      = "Vote";
 
 "Create"    = "Create";
-"Settings"  = "Settings";
+"settings"  = "Settings";
 "Mood"      = "Mood";
 "Nickname"  = "Nickname";
 "Update"    = "Update";
@@ -38,6 +38,13 @@
 
 "owner"     = "Owner/Referee";
 
+"gameStatus" = "Game Status";
+"gameStatusAbsent" = "Absent";
+"gameStatusNormal" = "Normal";
+
+"refreshing" = "Refreshing";
+"refreshSuccess" = "Refresh success";
+"refreshFail" = "Refresh fail";
 
 "createSuccess" = "Game created successfully!";
 
